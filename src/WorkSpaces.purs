@@ -20,77 +20,103 @@ import Data.StrMap as StrMap
 import AWS.Request as Request
 import AWS.Request.Types as Types
 
-serviceName = "WorkSpaces" :: String
-
 
 -- | <p>Creates tags for the specified WorkSpace.</p>
 createTags :: forall eff. CreateTagsRequest -> Aff (exception :: EXCEPTION | eff) CreateTagsResult
-createTags = Request.request serviceName "createTags" 
+createTags = Request.request service method  where
+    service = Request.ServiceName "WorkSpaces"
+    method = Request.MethodName "createTags"
 
 
 -- | <p>Creates one or more WorkSpaces.</p> <p>This operation is asynchronous and returns before the WorkSpaces are created.</p>
 createWorkspaces :: forall eff. CreateWorkspacesRequest -> Aff (exception :: EXCEPTION | eff) CreateWorkspacesResult
-createWorkspaces = Request.request serviceName "createWorkspaces" 
+createWorkspaces = Request.request service method  where
+    service = Request.ServiceName "WorkSpaces"
+    method = Request.MethodName "createWorkspaces"
 
 
 -- | <p>Deletes the specified tags from a WorkSpace.</p>
 deleteTags :: forall eff. DeleteTagsRequest -> Aff (exception :: EXCEPTION | eff) DeleteTagsResult
-deleteTags = Request.request serviceName "deleteTags" 
+deleteTags = Request.request service method  where
+    service = Request.ServiceName "WorkSpaces"
+    method = Request.MethodName "deleteTags"
 
 
 -- | <p>Describes the tags for the specified WorkSpace.</p>
 describeTags :: forall eff. DescribeTagsRequest -> Aff (exception :: EXCEPTION | eff) DescribeTagsResult
-describeTags = Request.request serviceName "describeTags" 
+describeTags = Request.request service method  where
+    service = Request.ServiceName "WorkSpaces"
+    method = Request.MethodName "describeTags"
 
 
 -- | <p>Describes the available WorkSpace bundles.</p> <p>You can filter the results using either bundle ID or owner, but not both.</p>
 describeWorkspaceBundles :: forall eff. DescribeWorkspaceBundlesRequest -> Aff (exception :: EXCEPTION | eff) DescribeWorkspaceBundlesResult
-describeWorkspaceBundles = Request.request serviceName "describeWorkspaceBundles" 
+describeWorkspaceBundles = Request.request service method  where
+    service = Request.ServiceName "WorkSpaces"
+    method = Request.MethodName "describeWorkspaceBundles"
 
 
 -- | <p>Describes the available AWS Directory Service directories that are registered with Amazon WorkSpaces.</p>
 describeWorkspaceDirectories :: forall eff. DescribeWorkspaceDirectoriesRequest -> Aff (exception :: EXCEPTION | eff) DescribeWorkspaceDirectoriesResult
-describeWorkspaceDirectories = Request.request serviceName "describeWorkspaceDirectories" 
+describeWorkspaceDirectories = Request.request service method  where
+    service = Request.ServiceName "WorkSpaces"
+    method = Request.MethodName "describeWorkspaceDirectories"
 
 
 -- | <p>Describes the specified WorkSpaces.</p> <p>You can filter the results using bundle ID, directory ID, or owner, but you can specify only one filter at a time.</p>
 describeWorkspaces :: forall eff. DescribeWorkspacesRequest -> Aff (exception :: EXCEPTION | eff) DescribeWorkspacesResult
-describeWorkspaces = Request.request serviceName "describeWorkspaces" 
+describeWorkspaces = Request.request service method  where
+    service = Request.ServiceName "WorkSpaces"
+    method = Request.MethodName "describeWorkspaces"
 
 
 -- | <p>Describes the connection status of the specified WorkSpaces.</p>
 describeWorkspacesConnectionStatus :: forall eff. DescribeWorkspacesConnectionStatusRequest -> Aff (exception :: EXCEPTION | eff) DescribeWorkspacesConnectionStatusResult
-describeWorkspacesConnectionStatus = Request.request serviceName "describeWorkspacesConnectionStatus" 
+describeWorkspacesConnectionStatus = Request.request service method  where
+    service = Request.ServiceName "WorkSpaces"
+    method = Request.MethodName "describeWorkspacesConnectionStatus"
 
 
 -- | <p>Modifies the specified WorkSpace properties.</p>
 modifyWorkspaceProperties :: forall eff. ModifyWorkspacePropertiesRequest -> Aff (exception :: EXCEPTION | eff) ModifyWorkspacePropertiesResult
-modifyWorkspaceProperties = Request.request serviceName "modifyWorkspaceProperties" 
+modifyWorkspaceProperties = Request.request service method  where
+    service = Request.ServiceName "WorkSpaces"
+    method = Request.MethodName "modifyWorkspaceProperties"
 
 
 -- | <p>Reboots the specified WorkSpaces.</p> <p>You cannot reboot a WorkSpace unless its state is <code>AVAILABLE</code>, <code>IMPAIRED</code>, or <code>INOPERABLE</code>.</p> <p>This operation is asynchronous and returns before the WorkSpaces have rebooted.</p>
 rebootWorkspaces :: forall eff. RebootWorkspacesRequest -> Aff (exception :: EXCEPTION | eff) RebootWorkspacesResult
-rebootWorkspaces = Request.request serviceName "rebootWorkspaces" 
+rebootWorkspaces = Request.request service method  where
+    service = Request.ServiceName "WorkSpaces"
+    method = Request.MethodName "rebootWorkspaces"
 
 
 -- | <p>Rebuilds the specified WorkSpaces.</p> <p>You cannot rebuild a WorkSpace unless its state is <code>AVAILABLE</code> or <code>ERROR</code>.</p> <p>Rebuilding a WorkSpace is a potentially destructive action that can result in the loss of data. For more information, see <a href="http://docs.aws.amazon.com/workspaces/latest/adminguide/reset-workspace.html">Rebuild a WorkSpace</a>.</p> <p>This operation is asynchronous and returns before the WorkSpaces have been completely rebuilt.</p>
 rebuildWorkspaces :: forall eff. RebuildWorkspacesRequest -> Aff (exception :: EXCEPTION | eff) RebuildWorkspacesResult
-rebuildWorkspaces = Request.request serviceName "rebuildWorkspaces" 
+rebuildWorkspaces = Request.request service method  where
+    service = Request.ServiceName "WorkSpaces"
+    method = Request.MethodName "rebuildWorkspaces"
 
 
 -- | <p>Starts the specified WorkSpaces.</p> <p>You cannot start a WorkSpace unless it has a running mode of <code>AutoStop</code> and a state of <code>STOPPED</code>.</p>
 startWorkspaces :: forall eff. StartWorkspacesRequest -> Aff (exception :: EXCEPTION | eff) StartWorkspacesResult
-startWorkspaces = Request.request serviceName "startWorkspaces" 
+startWorkspaces = Request.request service method  where
+    service = Request.ServiceName "WorkSpaces"
+    method = Request.MethodName "startWorkspaces"
 
 
 -- | <p> Stops the specified WorkSpaces.</p> <p>You cannot stop a WorkSpace unless it has a running mode of <code>AutoStop</code> and a state of <code>AVAILABLE</code>, <code>IMPAIRED</code>, <code>UNHEALTHY</code>, or <code>ERROR</code>.</p>
 stopWorkspaces :: forall eff. StopWorkspacesRequest -> Aff (exception :: EXCEPTION | eff) StopWorkspacesResult
-stopWorkspaces = Request.request serviceName "stopWorkspaces" 
+stopWorkspaces = Request.request service method  where
+    service = Request.ServiceName "WorkSpaces"
+    method = Request.MethodName "stopWorkspaces"
 
 
 -- | <p>Terminates the specified WorkSpaces.</p> <p>Terminating a WorkSpace is a permanent action and cannot be undone. The user's data is destroyed. If you need to archive any user data, contact Amazon Web Services before terminating the WorkSpace.</p> <p>You can terminate a WorkSpace that is in any state except <code>SUSPENDED</code>.</p> <p>This operation is asynchronous and returns before the WorkSpaces have been completely terminated.</p>
 terminateWorkspaces :: forall eff. TerminateWorkspacesRequest -> Aff (exception :: EXCEPTION | eff) TerminateWorkspacesResult
-terminateWorkspaces = Request.request serviceName "terminateWorkspaces" 
+terminateWorkspaces = Request.request service method  where
+    service = Request.ServiceName "WorkSpaces"
+    method = Request.MethodName "terminateWorkspaces"
 
 
 newtype ARN = ARN String
