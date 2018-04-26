@@ -26,7 +26,7 @@ Encode ARN
 
 ``` purescript
 newtype AccessDeniedException
-  = AccessDeniedException { message :: NullOrUndefined (ExceptionMessage) }
+  = AccessDeniedException { message :: Maybe (ExceptionMessage) }
 ```
 
 <p>The user is not authorized to access a resource.</p>
@@ -51,7 +51,7 @@ Constructs AccessDeniedException from required parameters
 #### `newAccessDeniedException'`
 
 ``` purescript
-newAccessDeniedException' :: ({ message :: NullOrUndefined (ExceptionMessage) } -> { message :: NullOrUndefined (ExceptionMessage) }) -> AccessDeniedException
+newAccessDeniedException' :: ({ message :: Maybe (ExceptionMessage) } -> { message :: Maybe (ExceptionMessage) }) -> AccessDeniedException
 ```
 
 Constructs AccessDeniedException's fields from required parameters
@@ -172,7 +172,7 @@ Encode Compute
 
 ``` purescript
 newtype ComputeType
-  = ComputeType { "Name" :: NullOrUndefined (Compute) }
+  = ComputeType { "Name" :: Maybe (Compute) }
 ```
 
 <p>Information about the compute type.</p>
@@ -197,7 +197,7 @@ Constructs ComputeType from required parameters
 #### `newComputeType'`
 
 ``` purescript
-newComputeType' :: ({ "Name" :: NullOrUndefined (Compute) } -> { "Name" :: NullOrUndefined (Compute) }) -> ComputeType
+newComputeType' :: ({ "Name" :: Maybe (Compute) } -> { "Name" :: Maybe (Compute) }) -> ComputeType
 ```
 
 Constructs ComputeType's fields from required parameters
@@ -318,7 +318,7 @@ Constructs CreateWorkspacesRequest's fields from required parameters
 
 ``` purescript
 newtype CreateWorkspacesResult
-  = CreateWorkspacesResult { "FailedRequests" :: NullOrUndefined (FailedCreateWorkspaceRequests), "PendingRequests" :: NullOrUndefined (WorkspaceList) }
+  = CreateWorkspacesResult { "FailedRequests" :: Maybe (FailedCreateWorkspaceRequests), "PendingRequests" :: Maybe (WorkspaceList) }
 ```
 
 ##### Instances
@@ -341,7 +341,7 @@ Constructs CreateWorkspacesResult from required parameters
 #### `newCreateWorkspacesResult'`
 
 ``` purescript
-newCreateWorkspacesResult' :: ({ "FailedRequests" :: NullOrUndefined (FailedCreateWorkspaceRequests), "PendingRequests" :: NullOrUndefined (WorkspaceList) } -> { "FailedRequests" :: NullOrUndefined (FailedCreateWorkspaceRequests), "PendingRequests" :: NullOrUndefined (WorkspaceList) }) -> CreateWorkspacesResult
+newCreateWorkspacesResult' :: ({ "FailedRequests" :: Maybe (FailedCreateWorkspaceRequests), "PendingRequests" :: Maybe (WorkspaceList) } -> { "FailedRequests" :: Maybe (FailedCreateWorkspaceRequests), "PendingRequests" :: Maybe (WorkspaceList) }) -> CreateWorkspacesResult
 ```
 
 Constructs CreateWorkspacesResult's fields from required parameters
@@ -366,7 +366,7 @@ Encode DefaultOu
 
 ``` purescript
 newtype DefaultWorkspaceCreationProperties
-  = DefaultWorkspaceCreationProperties { "EnableWorkDocs" :: NullOrUndefined (BooleanObject), "EnableInternetAccess" :: NullOrUndefined (BooleanObject), "DefaultOu" :: NullOrUndefined (DefaultOu), "CustomSecurityGroupId" :: NullOrUndefined (SecurityGroupId), "UserEnabledAsLocalAdministrator" :: NullOrUndefined (BooleanObject) }
+  = DefaultWorkspaceCreationProperties { "EnableWorkDocs" :: Maybe (BooleanObject), "EnableInternetAccess" :: Maybe (BooleanObject), "DefaultOu" :: Maybe (DefaultOu), "CustomSecurityGroupId" :: Maybe (SecurityGroupId), "UserEnabledAsLocalAdministrator" :: Maybe (BooleanObject) }
 ```
 
 <p>Information about defaults used to create a WorkSpace.</p>
@@ -391,7 +391,7 @@ Constructs DefaultWorkspaceCreationProperties from required parameters
 #### `newDefaultWorkspaceCreationProperties'`
 
 ``` purescript
-newDefaultWorkspaceCreationProperties' :: ({ "EnableWorkDocs" :: NullOrUndefined (BooleanObject), "EnableInternetAccess" :: NullOrUndefined (BooleanObject), "DefaultOu" :: NullOrUndefined (DefaultOu), "CustomSecurityGroupId" :: NullOrUndefined (SecurityGroupId), "UserEnabledAsLocalAdministrator" :: NullOrUndefined (BooleanObject) } -> { "EnableWorkDocs" :: NullOrUndefined (BooleanObject), "EnableInternetAccess" :: NullOrUndefined (BooleanObject), "DefaultOu" :: NullOrUndefined (DefaultOu), "CustomSecurityGroupId" :: NullOrUndefined (SecurityGroupId), "UserEnabledAsLocalAdministrator" :: NullOrUndefined (BooleanObject) }) -> DefaultWorkspaceCreationProperties
+newDefaultWorkspaceCreationProperties' :: ({ "EnableWorkDocs" :: Maybe (BooleanObject), "EnableInternetAccess" :: Maybe (BooleanObject), "DefaultOu" :: Maybe (DefaultOu), "CustomSecurityGroupId" :: Maybe (SecurityGroupId), "UserEnabledAsLocalAdministrator" :: Maybe (BooleanObject) } -> { "EnableWorkDocs" :: Maybe (BooleanObject), "EnableInternetAccess" :: Maybe (BooleanObject), "DefaultOu" :: Maybe (DefaultOu), "CustomSecurityGroupId" :: Maybe (SecurityGroupId), "UserEnabledAsLocalAdministrator" :: Maybe (BooleanObject) }) -> DefaultWorkspaceCreationProperties
 ```
 
 Constructs DefaultWorkspaceCreationProperties's fields from required parameters
@@ -480,7 +480,7 @@ Constructs DescribeTagsRequest's fields from required parameters
 
 ``` purescript
 newtype DescribeTagsResult
-  = DescribeTagsResult { "TagList" :: NullOrUndefined (TagList) }
+  = DescribeTagsResult { "TagList" :: Maybe (TagList) }
 ```
 
 ##### Instances
@@ -503,7 +503,7 @@ Constructs DescribeTagsResult from required parameters
 #### `newDescribeTagsResult'`
 
 ``` purescript
-newDescribeTagsResult' :: ({ "TagList" :: NullOrUndefined (TagList) } -> { "TagList" :: NullOrUndefined (TagList) }) -> DescribeTagsResult
+newDescribeTagsResult' :: ({ "TagList" :: Maybe (TagList) } -> { "TagList" :: Maybe (TagList) }) -> DescribeTagsResult
 ```
 
 Constructs DescribeTagsResult's fields from required parameters
@@ -512,7 +512,7 @@ Constructs DescribeTagsResult's fields from required parameters
 
 ``` purescript
 newtype DescribeWorkspaceBundlesRequest
-  = DescribeWorkspaceBundlesRequest { "BundleIds" :: NullOrUndefined (BundleIdList), "Owner" :: NullOrUndefined (BundleOwner), "NextToken" :: NullOrUndefined (PaginationToken) }
+  = DescribeWorkspaceBundlesRequest { "BundleIds" :: Maybe (BundleIdList), "Owner" :: Maybe (BundleOwner), "NextToken" :: Maybe (PaginationToken) }
 ```
 
 ##### Instances
@@ -535,7 +535,7 @@ Constructs DescribeWorkspaceBundlesRequest from required parameters
 #### `newDescribeWorkspaceBundlesRequest'`
 
 ``` purescript
-newDescribeWorkspaceBundlesRequest' :: ({ "BundleIds" :: NullOrUndefined (BundleIdList), "Owner" :: NullOrUndefined (BundleOwner), "NextToken" :: NullOrUndefined (PaginationToken) } -> { "BundleIds" :: NullOrUndefined (BundleIdList), "Owner" :: NullOrUndefined (BundleOwner), "NextToken" :: NullOrUndefined (PaginationToken) }) -> DescribeWorkspaceBundlesRequest
+newDescribeWorkspaceBundlesRequest' :: ({ "BundleIds" :: Maybe (BundleIdList), "Owner" :: Maybe (BundleOwner), "NextToken" :: Maybe (PaginationToken) } -> { "BundleIds" :: Maybe (BundleIdList), "Owner" :: Maybe (BundleOwner), "NextToken" :: Maybe (PaginationToken) }) -> DescribeWorkspaceBundlesRequest
 ```
 
 Constructs DescribeWorkspaceBundlesRequest's fields from required parameters
@@ -544,7 +544,7 @@ Constructs DescribeWorkspaceBundlesRequest's fields from required parameters
 
 ``` purescript
 newtype DescribeWorkspaceBundlesResult
-  = DescribeWorkspaceBundlesResult { "Bundles" :: NullOrUndefined (BundleList), "NextToken" :: NullOrUndefined (PaginationToken) }
+  = DescribeWorkspaceBundlesResult { "Bundles" :: Maybe (BundleList), "NextToken" :: Maybe (PaginationToken) }
 ```
 
 ##### Instances
@@ -567,7 +567,7 @@ Constructs DescribeWorkspaceBundlesResult from required parameters
 #### `newDescribeWorkspaceBundlesResult'`
 
 ``` purescript
-newDescribeWorkspaceBundlesResult' :: ({ "Bundles" :: NullOrUndefined (BundleList), "NextToken" :: NullOrUndefined (PaginationToken) } -> { "Bundles" :: NullOrUndefined (BundleList), "NextToken" :: NullOrUndefined (PaginationToken) }) -> DescribeWorkspaceBundlesResult
+newDescribeWorkspaceBundlesResult' :: ({ "Bundles" :: Maybe (BundleList), "NextToken" :: Maybe (PaginationToken) } -> { "Bundles" :: Maybe (BundleList), "NextToken" :: Maybe (PaginationToken) }) -> DescribeWorkspaceBundlesResult
 ```
 
 Constructs DescribeWorkspaceBundlesResult's fields from required parameters
@@ -576,7 +576,7 @@ Constructs DescribeWorkspaceBundlesResult's fields from required parameters
 
 ``` purescript
 newtype DescribeWorkspaceDirectoriesRequest
-  = DescribeWorkspaceDirectoriesRequest { "DirectoryIds" :: NullOrUndefined (DirectoryIdList), "NextToken" :: NullOrUndefined (PaginationToken) }
+  = DescribeWorkspaceDirectoriesRequest { "DirectoryIds" :: Maybe (DirectoryIdList), "NextToken" :: Maybe (PaginationToken) }
 ```
 
 ##### Instances
@@ -599,7 +599,7 @@ Constructs DescribeWorkspaceDirectoriesRequest from required parameters
 #### `newDescribeWorkspaceDirectoriesRequest'`
 
 ``` purescript
-newDescribeWorkspaceDirectoriesRequest' :: ({ "DirectoryIds" :: NullOrUndefined (DirectoryIdList), "NextToken" :: NullOrUndefined (PaginationToken) } -> { "DirectoryIds" :: NullOrUndefined (DirectoryIdList), "NextToken" :: NullOrUndefined (PaginationToken) }) -> DescribeWorkspaceDirectoriesRequest
+newDescribeWorkspaceDirectoriesRequest' :: ({ "DirectoryIds" :: Maybe (DirectoryIdList), "NextToken" :: Maybe (PaginationToken) } -> { "DirectoryIds" :: Maybe (DirectoryIdList), "NextToken" :: Maybe (PaginationToken) }) -> DescribeWorkspaceDirectoriesRequest
 ```
 
 Constructs DescribeWorkspaceDirectoriesRequest's fields from required parameters
@@ -608,7 +608,7 @@ Constructs DescribeWorkspaceDirectoriesRequest's fields from required parameters
 
 ``` purescript
 newtype DescribeWorkspaceDirectoriesResult
-  = DescribeWorkspaceDirectoriesResult { "Directories" :: NullOrUndefined (DirectoryList), "NextToken" :: NullOrUndefined (PaginationToken) }
+  = DescribeWorkspaceDirectoriesResult { "Directories" :: Maybe (DirectoryList), "NextToken" :: Maybe (PaginationToken) }
 ```
 
 ##### Instances
@@ -631,7 +631,7 @@ Constructs DescribeWorkspaceDirectoriesResult from required parameters
 #### `newDescribeWorkspaceDirectoriesResult'`
 
 ``` purescript
-newDescribeWorkspaceDirectoriesResult' :: ({ "Directories" :: NullOrUndefined (DirectoryList), "NextToken" :: NullOrUndefined (PaginationToken) } -> { "Directories" :: NullOrUndefined (DirectoryList), "NextToken" :: NullOrUndefined (PaginationToken) }) -> DescribeWorkspaceDirectoriesResult
+newDescribeWorkspaceDirectoriesResult' :: ({ "Directories" :: Maybe (DirectoryList), "NextToken" :: Maybe (PaginationToken) } -> { "Directories" :: Maybe (DirectoryList), "NextToken" :: Maybe (PaginationToken) }) -> DescribeWorkspaceDirectoriesResult
 ```
 
 Constructs DescribeWorkspaceDirectoriesResult's fields from required parameters
@@ -640,7 +640,7 @@ Constructs DescribeWorkspaceDirectoriesResult's fields from required parameters
 
 ``` purescript
 newtype DescribeWorkspacesConnectionStatusRequest
-  = DescribeWorkspacesConnectionStatusRequest { "WorkspaceIds" :: NullOrUndefined (WorkspaceIdList), "NextToken" :: NullOrUndefined (PaginationToken) }
+  = DescribeWorkspacesConnectionStatusRequest { "WorkspaceIds" :: Maybe (WorkspaceIdList), "NextToken" :: Maybe (PaginationToken) }
 ```
 
 ##### Instances
@@ -663,7 +663,7 @@ Constructs DescribeWorkspacesConnectionStatusRequest from required parameters
 #### `newDescribeWorkspacesConnectionStatusRequest'`
 
 ``` purescript
-newDescribeWorkspacesConnectionStatusRequest' :: ({ "WorkspaceIds" :: NullOrUndefined (WorkspaceIdList), "NextToken" :: NullOrUndefined (PaginationToken) } -> { "WorkspaceIds" :: NullOrUndefined (WorkspaceIdList), "NextToken" :: NullOrUndefined (PaginationToken) }) -> DescribeWorkspacesConnectionStatusRequest
+newDescribeWorkspacesConnectionStatusRequest' :: ({ "WorkspaceIds" :: Maybe (WorkspaceIdList), "NextToken" :: Maybe (PaginationToken) } -> { "WorkspaceIds" :: Maybe (WorkspaceIdList), "NextToken" :: Maybe (PaginationToken) }) -> DescribeWorkspacesConnectionStatusRequest
 ```
 
 Constructs DescribeWorkspacesConnectionStatusRequest's fields from required parameters
@@ -672,7 +672,7 @@ Constructs DescribeWorkspacesConnectionStatusRequest's fields from required para
 
 ``` purescript
 newtype DescribeWorkspacesConnectionStatusResult
-  = DescribeWorkspacesConnectionStatusResult { "WorkspacesConnectionStatus" :: NullOrUndefined (WorkspaceConnectionStatusList), "NextToken" :: NullOrUndefined (PaginationToken) }
+  = DescribeWorkspacesConnectionStatusResult { "WorkspacesConnectionStatus" :: Maybe (WorkspaceConnectionStatusList), "NextToken" :: Maybe (PaginationToken) }
 ```
 
 ##### Instances
@@ -695,7 +695,7 @@ Constructs DescribeWorkspacesConnectionStatusResult from required parameters
 #### `newDescribeWorkspacesConnectionStatusResult'`
 
 ``` purescript
-newDescribeWorkspacesConnectionStatusResult' :: ({ "WorkspacesConnectionStatus" :: NullOrUndefined (WorkspaceConnectionStatusList), "NextToken" :: NullOrUndefined (PaginationToken) } -> { "WorkspacesConnectionStatus" :: NullOrUndefined (WorkspaceConnectionStatusList), "NextToken" :: NullOrUndefined (PaginationToken) }) -> DescribeWorkspacesConnectionStatusResult
+newDescribeWorkspacesConnectionStatusResult' :: ({ "WorkspacesConnectionStatus" :: Maybe (WorkspaceConnectionStatusList), "NextToken" :: Maybe (PaginationToken) } -> { "WorkspacesConnectionStatus" :: Maybe (WorkspaceConnectionStatusList), "NextToken" :: Maybe (PaginationToken) }) -> DescribeWorkspacesConnectionStatusResult
 ```
 
 Constructs DescribeWorkspacesConnectionStatusResult's fields from required parameters
@@ -704,7 +704,7 @@ Constructs DescribeWorkspacesConnectionStatusResult's fields from required param
 
 ``` purescript
 newtype DescribeWorkspacesRequest
-  = DescribeWorkspacesRequest { "WorkspaceIds" :: NullOrUndefined (WorkspaceIdList), "DirectoryId" :: NullOrUndefined (DirectoryId), "UserName" :: NullOrUndefined (UserName), "BundleId" :: NullOrUndefined (BundleId), "Limit" :: NullOrUndefined (Limit), "NextToken" :: NullOrUndefined (PaginationToken) }
+  = DescribeWorkspacesRequest { "WorkspaceIds" :: Maybe (WorkspaceIdList), "DirectoryId" :: Maybe (DirectoryId), "UserName" :: Maybe (UserName), "BundleId" :: Maybe (BundleId), "Limit" :: Maybe (Limit), "NextToken" :: Maybe (PaginationToken) }
 ```
 
 ##### Instances
@@ -727,7 +727,7 @@ Constructs DescribeWorkspacesRequest from required parameters
 #### `newDescribeWorkspacesRequest'`
 
 ``` purescript
-newDescribeWorkspacesRequest' :: ({ "WorkspaceIds" :: NullOrUndefined (WorkspaceIdList), "DirectoryId" :: NullOrUndefined (DirectoryId), "UserName" :: NullOrUndefined (UserName), "BundleId" :: NullOrUndefined (BundleId), "Limit" :: NullOrUndefined (Limit), "NextToken" :: NullOrUndefined (PaginationToken) } -> { "WorkspaceIds" :: NullOrUndefined (WorkspaceIdList), "DirectoryId" :: NullOrUndefined (DirectoryId), "UserName" :: NullOrUndefined (UserName), "BundleId" :: NullOrUndefined (BundleId), "Limit" :: NullOrUndefined (Limit), "NextToken" :: NullOrUndefined (PaginationToken) }) -> DescribeWorkspacesRequest
+newDescribeWorkspacesRequest' :: ({ "WorkspaceIds" :: Maybe (WorkspaceIdList), "DirectoryId" :: Maybe (DirectoryId), "UserName" :: Maybe (UserName), "BundleId" :: Maybe (BundleId), "Limit" :: Maybe (Limit), "NextToken" :: Maybe (PaginationToken) } -> { "WorkspaceIds" :: Maybe (WorkspaceIdList), "DirectoryId" :: Maybe (DirectoryId), "UserName" :: Maybe (UserName), "BundleId" :: Maybe (BundleId), "Limit" :: Maybe (Limit), "NextToken" :: Maybe (PaginationToken) }) -> DescribeWorkspacesRequest
 ```
 
 Constructs DescribeWorkspacesRequest's fields from required parameters
@@ -736,7 +736,7 @@ Constructs DescribeWorkspacesRequest's fields from required parameters
 
 ``` purescript
 newtype DescribeWorkspacesResult
-  = DescribeWorkspacesResult { "Workspaces" :: NullOrUndefined (WorkspaceList), "NextToken" :: NullOrUndefined (PaginationToken) }
+  = DescribeWorkspacesResult { "Workspaces" :: Maybe (WorkspaceList), "NextToken" :: Maybe (PaginationToken) }
 ```
 
 ##### Instances
@@ -759,7 +759,7 @@ Constructs DescribeWorkspacesResult from required parameters
 #### `newDescribeWorkspacesResult'`
 
 ``` purescript
-newDescribeWorkspacesResult' :: ({ "Workspaces" :: NullOrUndefined (WorkspaceList), "NextToken" :: NullOrUndefined (PaginationToken) } -> { "Workspaces" :: NullOrUndefined (WorkspaceList), "NextToken" :: NullOrUndefined (PaginationToken) }) -> DescribeWorkspacesResult
+newDescribeWorkspacesResult' :: ({ "Workspaces" :: Maybe (WorkspaceList), "NextToken" :: Maybe (PaginationToken) } -> { "Workspaces" :: Maybe (WorkspaceList), "NextToken" :: Maybe (PaginationToken) }) -> DescribeWorkspacesResult
 ```
 
 Constructs DescribeWorkspacesResult's fields from required parameters
@@ -896,7 +896,7 @@ Encode ExceptionMessage
 
 ``` purescript
 newtype FailedCreateWorkspaceRequest
-  = FailedCreateWorkspaceRequest { "WorkspaceRequest" :: NullOrUndefined (WorkspaceRequest), "ErrorCode" :: NullOrUndefined (ErrorType), "ErrorMessage" :: NullOrUndefined (Description) }
+  = FailedCreateWorkspaceRequest { "WorkspaceRequest" :: Maybe (WorkspaceRequest), "ErrorCode" :: Maybe (ErrorType), "ErrorMessage" :: Maybe (Description) }
 ```
 
 <p>Information about a WorkSpace that could not be created.</p>
@@ -921,7 +921,7 @@ Constructs FailedCreateWorkspaceRequest from required parameters
 #### `newFailedCreateWorkspaceRequest'`
 
 ``` purescript
-newFailedCreateWorkspaceRequest' :: ({ "WorkspaceRequest" :: NullOrUndefined (WorkspaceRequest), "ErrorCode" :: NullOrUndefined (ErrorType), "ErrorMessage" :: NullOrUndefined (Description) } -> { "WorkspaceRequest" :: NullOrUndefined (WorkspaceRequest), "ErrorCode" :: NullOrUndefined (ErrorType), "ErrorMessage" :: NullOrUndefined (Description) }) -> FailedCreateWorkspaceRequest
+newFailedCreateWorkspaceRequest' :: ({ "WorkspaceRequest" :: Maybe (WorkspaceRequest), "ErrorCode" :: Maybe (ErrorType), "ErrorMessage" :: Maybe (Description) } -> { "WorkspaceRequest" :: Maybe (WorkspaceRequest), "ErrorCode" :: Maybe (ErrorType), "ErrorMessage" :: Maybe (Description) }) -> FailedCreateWorkspaceRequest
 ```
 
 Constructs FailedCreateWorkspaceRequest's fields from required parameters
@@ -1026,7 +1026,7 @@ Encode FailedTerminateWorkspaceRequests
 
 ``` purescript
 newtype FailedWorkspaceChangeRequest
-  = FailedWorkspaceChangeRequest { "WorkspaceId" :: NullOrUndefined (WorkspaceId), "ErrorCode" :: NullOrUndefined (ErrorType), "ErrorMessage" :: NullOrUndefined (Description) }
+  = FailedWorkspaceChangeRequest { "WorkspaceId" :: Maybe (WorkspaceId), "ErrorCode" :: Maybe (ErrorType), "ErrorMessage" :: Maybe (Description) }
 ```
 
 <p>Information about a WorkSpace that could not be rebooted (<a>RebootWorkspaces</a>), rebuilt (<a>RebuildWorkspaces</a>), terminated (<a>TerminateWorkspaces</a>), started (<a>StartWorkspaces</a>), or stopped (<a>StopWorkspaces</a>).</p>
@@ -1051,7 +1051,7 @@ Constructs FailedWorkspaceChangeRequest from required parameters
 #### `newFailedWorkspaceChangeRequest'`
 
 ``` purescript
-newFailedWorkspaceChangeRequest' :: ({ "WorkspaceId" :: NullOrUndefined (WorkspaceId), "ErrorCode" :: NullOrUndefined (ErrorType), "ErrorMessage" :: NullOrUndefined (Description) } -> { "WorkspaceId" :: NullOrUndefined (WorkspaceId), "ErrorCode" :: NullOrUndefined (ErrorType), "ErrorMessage" :: NullOrUndefined (Description) }) -> FailedWorkspaceChangeRequest
+newFailedWorkspaceChangeRequest' :: ({ "WorkspaceId" :: Maybe (WorkspaceId), "ErrorCode" :: Maybe (ErrorType), "ErrorMessage" :: Maybe (Description) } -> { "WorkspaceId" :: Maybe (WorkspaceId), "ErrorCode" :: Maybe (ErrorType), "ErrorMessage" :: Maybe (Description) }) -> FailedWorkspaceChangeRequest
 ```
 
 Constructs FailedWorkspaceChangeRequest's fields from required parameters
@@ -1060,7 +1060,7 @@ Constructs FailedWorkspaceChangeRequest's fields from required parameters
 
 ``` purescript
 newtype InvalidParameterValuesException
-  = InvalidParameterValuesException { message :: NullOrUndefined (ExceptionMessage) }
+  = InvalidParameterValuesException { message :: Maybe (ExceptionMessage) }
 ```
 
 <p>One or more parameter values are not valid.</p>
@@ -1085,7 +1085,7 @@ Constructs InvalidParameterValuesException from required parameters
 #### `newInvalidParameterValuesException'`
 
 ``` purescript
-newInvalidParameterValuesException' :: ({ message :: NullOrUndefined (ExceptionMessage) } -> { message :: NullOrUndefined (ExceptionMessage) }) -> InvalidParameterValuesException
+newInvalidParameterValuesException' :: ({ message :: Maybe (ExceptionMessage) } -> { message :: Maybe (ExceptionMessage) }) -> InvalidParameterValuesException
 ```
 
 Constructs InvalidParameterValuesException's fields from required parameters
@@ -1094,7 +1094,7 @@ Constructs InvalidParameterValuesException's fields from required parameters
 
 ``` purescript
 newtype InvalidResourceStateException
-  = InvalidResourceStateException { message :: NullOrUndefined (ExceptionMessage) }
+  = InvalidResourceStateException { message :: Maybe (ExceptionMessage) }
 ```
 
 <p>The state of the WorkSpace is not valid for this operation.</p>
@@ -1119,7 +1119,7 @@ Constructs InvalidResourceStateException from required parameters
 #### `newInvalidResourceStateException'`
 
 ``` purescript
-newInvalidResourceStateException' :: ({ message :: NullOrUndefined (ExceptionMessage) } -> { message :: NullOrUndefined (ExceptionMessage) }) -> InvalidResourceStateException
+newInvalidResourceStateException' :: ({ message :: Maybe (ExceptionMessage) } -> { message :: Maybe (ExceptionMessage) }) -> InvalidResourceStateException
 ```
 
 Constructs InvalidResourceStateException's fields from required parameters
@@ -1176,7 +1176,7 @@ Encode ModificationResourceEnum
 
 ``` purescript
 newtype ModificationState
-  = ModificationState { "Resource" :: NullOrUndefined (ModificationResourceEnum), "State" :: NullOrUndefined (ModificationStateEnum) }
+  = ModificationState { "Resource" :: Maybe (ModificationResourceEnum), "State" :: Maybe (ModificationStateEnum) }
 ```
 
 <p>Information about a WorkSpace modification.</p>
@@ -1201,7 +1201,7 @@ Constructs ModificationState from required parameters
 #### `newModificationState'`
 
 ``` purescript
-newModificationState' :: ({ "Resource" :: NullOrUndefined (ModificationResourceEnum), "State" :: NullOrUndefined (ModificationStateEnum) } -> { "Resource" :: NullOrUndefined (ModificationResourceEnum), "State" :: NullOrUndefined (ModificationStateEnum) }) -> ModificationState
+newModificationState' :: ({ "Resource" :: Maybe (ModificationResourceEnum), "State" :: Maybe (ModificationStateEnum) } -> { "Resource" :: Maybe (ModificationResourceEnum), "State" :: Maybe (ModificationStateEnum) }) -> ModificationState
 ```
 
 Constructs ModificationState's fields from required parameters
@@ -1306,7 +1306,7 @@ Encode NonEmptyString
 
 ``` purescript
 newtype OperationInProgressException
-  = OperationInProgressException { message :: NullOrUndefined (ExceptionMessage) }
+  = OperationInProgressException { message :: Maybe (ExceptionMessage) }
 ```
 
 <p>The properties of this WorkSpace are currently being modified. Try again in a moment.</p>
@@ -1331,7 +1331,7 @@ Constructs OperationInProgressException from required parameters
 #### `newOperationInProgressException'`
 
 ``` purescript
-newOperationInProgressException' :: ({ message :: NullOrUndefined (ExceptionMessage) } -> { message :: NullOrUndefined (ExceptionMessage) }) -> OperationInProgressException
+newOperationInProgressException' :: ({ message :: Maybe (ExceptionMessage) } -> { message :: Maybe (ExceptionMessage) }) -> OperationInProgressException
 ```
 
 Constructs OperationInProgressException's fields from required parameters
@@ -1438,7 +1438,7 @@ Constructs RebootWorkspacesRequest's fields from required parameters
 
 ``` purescript
 newtype RebootWorkspacesResult
-  = RebootWorkspacesResult { "FailedRequests" :: NullOrUndefined (FailedRebootWorkspaceRequests) }
+  = RebootWorkspacesResult { "FailedRequests" :: Maybe (FailedRebootWorkspaceRequests) }
 ```
 
 ##### Instances
@@ -1461,7 +1461,7 @@ Constructs RebootWorkspacesResult from required parameters
 #### `newRebootWorkspacesResult'`
 
 ``` purescript
-newRebootWorkspacesResult' :: ({ "FailedRequests" :: NullOrUndefined (FailedRebootWorkspaceRequests) } -> { "FailedRequests" :: NullOrUndefined (FailedRebootWorkspaceRequests) }) -> RebootWorkspacesResult
+newRebootWorkspacesResult' :: ({ "FailedRequests" :: Maybe (FailedRebootWorkspaceRequests) } -> { "FailedRequests" :: Maybe (FailedRebootWorkspaceRequests) }) -> RebootWorkspacesResult
 ```
 
 Constructs RebootWorkspacesResult's fields from required parameters
@@ -1552,7 +1552,7 @@ Constructs RebuildWorkspacesRequest's fields from required parameters
 
 ``` purescript
 newtype RebuildWorkspacesResult
-  = RebuildWorkspacesResult { "FailedRequests" :: NullOrUndefined (FailedRebuildWorkspaceRequests) }
+  = RebuildWorkspacesResult { "FailedRequests" :: Maybe (FailedRebuildWorkspaceRequests) }
 ```
 
 ##### Instances
@@ -1575,7 +1575,7 @@ Constructs RebuildWorkspacesResult from required parameters
 #### `newRebuildWorkspacesResult'`
 
 ``` purescript
-newRebuildWorkspacesResult' :: ({ "FailedRequests" :: NullOrUndefined (FailedRebuildWorkspaceRequests) } -> { "FailedRequests" :: NullOrUndefined (FailedRebuildWorkspaceRequests) }) -> RebuildWorkspacesResult
+newRebuildWorkspacesResult' :: ({ "FailedRequests" :: Maybe (FailedRebuildWorkspaceRequests) } -> { "FailedRequests" :: Maybe (FailedRebuildWorkspaceRequests) }) -> RebuildWorkspacesResult
 ```
 
 Constructs RebuildWorkspacesResult's fields from required parameters
@@ -1600,7 +1600,7 @@ Encode RegistrationCode
 
 ``` purescript
 newtype ResourceLimitExceededException
-  = ResourceLimitExceededException { message :: NullOrUndefined (ExceptionMessage) }
+  = ResourceLimitExceededException { message :: Maybe (ExceptionMessage) }
 ```
 
 <p>Your resource limits have been exceeded.</p>
@@ -1625,7 +1625,7 @@ Constructs ResourceLimitExceededException from required parameters
 #### `newResourceLimitExceededException'`
 
 ``` purescript
-newResourceLimitExceededException' :: ({ message :: NullOrUndefined (ExceptionMessage) } -> { message :: NullOrUndefined (ExceptionMessage) }) -> ResourceLimitExceededException
+newResourceLimitExceededException' :: ({ message :: Maybe (ExceptionMessage) } -> { message :: Maybe (ExceptionMessage) }) -> ResourceLimitExceededException
 ```
 
 Constructs ResourceLimitExceededException's fields from required parameters
@@ -1634,7 +1634,7 @@ Constructs ResourceLimitExceededException's fields from required parameters
 
 ``` purescript
 newtype ResourceNotFoundException
-  = ResourceNotFoundException { message :: NullOrUndefined (ExceptionMessage), "ResourceId" :: NullOrUndefined (NonEmptyString) }
+  = ResourceNotFoundException { message :: Maybe (ExceptionMessage), "ResourceId" :: Maybe (NonEmptyString) }
 ```
 
 <p>The resource could not be found.</p>
@@ -1659,7 +1659,7 @@ Constructs ResourceNotFoundException from required parameters
 #### `newResourceNotFoundException'`
 
 ``` purescript
-newResourceNotFoundException' :: ({ message :: NullOrUndefined (ExceptionMessage), "ResourceId" :: NullOrUndefined (NonEmptyString) } -> { message :: NullOrUndefined (ExceptionMessage), "ResourceId" :: NullOrUndefined (NonEmptyString) }) -> ResourceNotFoundException
+newResourceNotFoundException' :: ({ message :: Maybe (ExceptionMessage), "ResourceId" :: Maybe (NonEmptyString) } -> { message :: Maybe (ExceptionMessage), "ResourceId" :: Maybe (NonEmptyString) }) -> ResourceNotFoundException
 ```
 
 Constructs ResourceNotFoundException's fields from required parameters
@@ -1668,7 +1668,7 @@ Constructs ResourceNotFoundException's fields from required parameters
 
 ``` purescript
 newtype ResourceUnavailableException
-  = ResourceUnavailableException { message :: NullOrUndefined (ExceptionMessage), "ResourceId" :: NullOrUndefined (NonEmptyString) }
+  = ResourceUnavailableException { message :: Maybe (ExceptionMessage), "ResourceId" :: Maybe (NonEmptyString) }
 ```
 
 <p>The specified resource is not available.</p>
@@ -1693,7 +1693,7 @@ Constructs ResourceUnavailableException from required parameters
 #### `newResourceUnavailableException'`
 
 ``` purescript
-newResourceUnavailableException' :: ({ message :: NullOrUndefined (ExceptionMessage), "ResourceId" :: NullOrUndefined (NonEmptyString) } -> { message :: NullOrUndefined (ExceptionMessage), "ResourceId" :: NullOrUndefined (NonEmptyString) }) -> ResourceUnavailableException
+newResourceUnavailableException' :: ({ message :: Maybe (ExceptionMessage), "ResourceId" :: Maybe (NonEmptyString) } -> { message :: Maybe (ExceptionMessage), "ResourceId" :: Maybe (NonEmptyString) }) -> ResourceUnavailableException
 ```
 
 Constructs ResourceUnavailableException's fields from required parameters
@@ -1702,7 +1702,7 @@ Constructs ResourceUnavailableException's fields from required parameters
 
 ``` purescript
 newtype RootStorage
-  = RootStorage { "Capacity" :: NullOrUndefined (NonEmptyString) }
+  = RootStorage { "Capacity" :: Maybe (NonEmptyString) }
 ```
 
 <p>Information about the root volume for a WorkSpace bundle.</p>
@@ -1727,7 +1727,7 @@ Constructs RootStorage from required parameters
 #### `newRootStorage'`
 
 ``` purescript
-newRootStorage' :: ({ "Capacity" :: NullOrUndefined (NonEmptyString) } -> { "Capacity" :: NullOrUndefined (NonEmptyString) }) -> RootStorage
+newRootStorage' :: ({ "Capacity" :: Maybe (NonEmptyString) } -> { "Capacity" :: Maybe (NonEmptyString) }) -> RootStorage
 ```
 
 Constructs RootStorage's fields from required parameters
@@ -1800,7 +1800,7 @@ Encode SecurityGroupId
 
 ``` purescript
 newtype StartRequest
-  = StartRequest { "WorkspaceId" :: NullOrUndefined (WorkspaceId) }
+  = StartRequest { "WorkspaceId" :: Maybe (WorkspaceId) }
 ```
 
 <p>Information used to start a WorkSpace.</p>
@@ -1825,7 +1825,7 @@ Constructs StartRequest from required parameters
 #### `newStartRequest'`
 
 ``` purescript
-newStartRequest' :: ({ "WorkspaceId" :: NullOrUndefined (WorkspaceId) } -> { "WorkspaceId" :: NullOrUndefined (WorkspaceId) }) -> StartRequest
+newStartRequest' :: ({ "WorkspaceId" :: Maybe (WorkspaceId) } -> { "WorkspaceId" :: Maybe (WorkspaceId) }) -> StartRequest
 ```
 
 Constructs StartRequest's fields from required parameters
@@ -1882,7 +1882,7 @@ Constructs StartWorkspacesRequest's fields from required parameters
 
 ``` purescript
 newtype StartWorkspacesResult
-  = StartWorkspacesResult { "FailedRequests" :: NullOrUndefined (FailedStartWorkspaceRequests) }
+  = StartWorkspacesResult { "FailedRequests" :: Maybe (FailedStartWorkspaceRequests) }
 ```
 
 ##### Instances
@@ -1905,7 +1905,7 @@ Constructs StartWorkspacesResult from required parameters
 #### `newStartWorkspacesResult'`
 
 ``` purescript
-newStartWorkspacesResult' :: ({ "FailedRequests" :: NullOrUndefined (FailedStartWorkspaceRequests) } -> { "FailedRequests" :: NullOrUndefined (FailedStartWorkspaceRequests) }) -> StartWorkspacesResult
+newStartWorkspacesResult' :: ({ "FailedRequests" :: Maybe (FailedStartWorkspaceRequests) } -> { "FailedRequests" :: Maybe (FailedStartWorkspaceRequests) }) -> StartWorkspacesResult
 ```
 
 Constructs StartWorkspacesResult's fields from required parameters
@@ -1914,7 +1914,7 @@ Constructs StartWorkspacesResult's fields from required parameters
 
 ``` purescript
 newtype StopRequest
-  = StopRequest { "WorkspaceId" :: NullOrUndefined (WorkspaceId) }
+  = StopRequest { "WorkspaceId" :: Maybe (WorkspaceId) }
 ```
 
 <p>Information used to stop a WorkSpace.</p>
@@ -1939,7 +1939,7 @@ Constructs StopRequest from required parameters
 #### `newStopRequest'`
 
 ``` purescript
-newStopRequest' :: ({ "WorkspaceId" :: NullOrUndefined (WorkspaceId) } -> { "WorkspaceId" :: NullOrUndefined (WorkspaceId) }) -> StopRequest
+newStopRequest' :: ({ "WorkspaceId" :: Maybe (WorkspaceId) } -> { "WorkspaceId" :: Maybe (WorkspaceId) }) -> StopRequest
 ```
 
 Constructs StopRequest's fields from required parameters
@@ -1996,7 +1996,7 @@ Constructs StopWorkspacesRequest's fields from required parameters
 
 ``` purescript
 newtype StopWorkspacesResult
-  = StopWorkspacesResult { "FailedRequests" :: NullOrUndefined (FailedStopWorkspaceRequests) }
+  = StopWorkspacesResult { "FailedRequests" :: Maybe (FailedStopWorkspaceRequests) }
 ```
 
 ##### Instances
@@ -2019,7 +2019,7 @@ Constructs StopWorkspacesResult from required parameters
 #### `newStopWorkspacesResult'`
 
 ``` purescript
-newStopWorkspacesResult' :: ({ "FailedRequests" :: NullOrUndefined (FailedStopWorkspaceRequests) } -> { "FailedRequests" :: NullOrUndefined (FailedStopWorkspaceRequests) }) -> StopWorkspacesResult
+newStopWorkspacesResult' :: ({ "FailedRequests" :: Maybe (FailedStopWorkspaceRequests) } -> { "FailedRequests" :: Maybe (FailedStopWorkspaceRequests) }) -> StopWorkspacesResult
 ```
 
 Constructs StopWorkspacesResult's fields from required parameters
@@ -2060,7 +2060,7 @@ Encode SubnetIds
 
 ``` purescript
 newtype Tag
-  = Tag { "Key" :: TagKey, "Value" :: NullOrUndefined (TagValue) }
+  = Tag { "Key" :: TagKey, "Value" :: Maybe (TagValue) }
 ```
 
 <p>Information about a tag.</p>
@@ -2085,7 +2085,7 @@ Constructs Tag from required parameters
 #### `newTag'`
 
 ``` purescript
-newTag' :: TagKey -> ({ "Key" :: TagKey, "Value" :: NullOrUndefined (TagValue) } -> { "Key" :: TagKey, "Value" :: NullOrUndefined (TagValue) }) -> Tag
+newTag' :: TagKey -> ({ "Key" :: TagKey, "Value" :: Maybe (TagValue) } -> { "Key" :: TagKey, "Value" :: Maybe (TagValue) }) -> Tag
 ```
 
 Constructs Tag's fields from required parameters
@@ -2240,7 +2240,7 @@ Constructs TerminateWorkspacesRequest's fields from required parameters
 
 ``` purescript
 newtype TerminateWorkspacesResult
-  = TerminateWorkspacesResult { "FailedRequests" :: NullOrUndefined (FailedTerminateWorkspaceRequests) }
+  = TerminateWorkspacesResult { "FailedRequests" :: Maybe (FailedTerminateWorkspaceRequests) }
 ```
 
 ##### Instances
@@ -2263,7 +2263,7 @@ Constructs TerminateWorkspacesResult from required parameters
 #### `newTerminateWorkspacesResult'`
 
 ``` purescript
-newTerminateWorkspacesResult' :: ({ "FailedRequests" :: NullOrUndefined (FailedTerminateWorkspaceRequests) } -> { "FailedRequests" :: NullOrUndefined (FailedTerminateWorkspaceRequests) }) -> TerminateWorkspacesResult
+newTerminateWorkspacesResult' :: ({ "FailedRequests" :: Maybe (FailedTerminateWorkspaceRequests) } -> { "FailedRequests" :: Maybe (FailedTerminateWorkspaceRequests) }) -> TerminateWorkspacesResult
 ```
 
 Constructs TerminateWorkspacesResult's fields from required parameters
@@ -2272,7 +2272,7 @@ Constructs TerminateWorkspacesResult's fields from required parameters
 
 ``` purescript
 newtype UnsupportedWorkspaceConfigurationException
-  = UnsupportedWorkspaceConfigurationException { message :: NullOrUndefined (ExceptionMessage) }
+  = UnsupportedWorkspaceConfigurationException { message :: Maybe (ExceptionMessage) }
 ```
 
 <p>The configuration of this WorkSpace is not supported for this operation. For more information, see the <a href="http://docs.aws.amazon.com/workspaces/latest/adminguide/">Amazon WorkSpaces Administration Guide</a>. </p>
@@ -2297,7 +2297,7 @@ Constructs UnsupportedWorkspaceConfigurationException from required parameters
 #### `newUnsupportedWorkspaceConfigurationException'`
 
 ``` purescript
-newUnsupportedWorkspaceConfigurationException' :: ({ message :: NullOrUndefined (ExceptionMessage) } -> { message :: NullOrUndefined (ExceptionMessage) }) -> UnsupportedWorkspaceConfigurationException
+newUnsupportedWorkspaceConfigurationException' :: ({ message :: Maybe (ExceptionMessage) } -> { message :: Maybe (ExceptionMessage) }) -> UnsupportedWorkspaceConfigurationException
 ```
 
 Constructs UnsupportedWorkspaceConfigurationException's fields from required parameters
@@ -2322,7 +2322,7 @@ Encode UserName
 
 ``` purescript
 newtype UserStorage
-  = UserStorage { "Capacity" :: NullOrUndefined (NonEmptyString) }
+  = UserStorage { "Capacity" :: Maybe (NonEmptyString) }
 ```
 
 <p>Information about the user storage for a WorkSpace bundle.</p>
@@ -2347,7 +2347,7 @@ Constructs UserStorage from required parameters
 #### `newUserStorage'`
 
 ``` purescript
-newUserStorage' :: ({ "Capacity" :: NullOrUndefined (NonEmptyString) } -> { "Capacity" :: NullOrUndefined (NonEmptyString) }) -> UserStorage
+newUserStorage' :: ({ "Capacity" :: Maybe (NonEmptyString) } -> { "Capacity" :: Maybe (NonEmptyString) }) -> UserStorage
 ```
 
 Constructs UserStorage's fields from required parameters
@@ -2388,7 +2388,7 @@ Encode VolumeEncryptionKey
 
 ``` purescript
 newtype Workspace
-  = Workspace { "WorkspaceId" :: NullOrUndefined (WorkspaceId), "DirectoryId" :: NullOrUndefined (DirectoryId), "UserName" :: NullOrUndefined (UserName), "IpAddress" :: NullOrUndefined (IpAddress), "State" :: NullOrUndefined (WorkspaceState), "BundleId" :: NullOrUndefined (BundleId), "SubnetId" :: NullOrUndefined (SubnetId), "ErrorMessage" :: NullOrUndefined (Description), "ErrorCode" :: NullOrUndefined (WorkspaceErrorCode), "ComputerName" :: NullOrUndefined (ComputerName), "VolumeEncryptionKey" :: NullOrUndefined (VolumeEncryptionKey), "UserVolumeEncryptionEnabled" :: NullOrUndefined (BooleanObject), "RootVolumeEncryptionEnabled" :: NullOrUndefined (BooleanObject), "WorkspaceProperties" :: NullOrUndefined (WorkspaceProperties), "ModificationStates" :: NullOrUndefined (ModificationStateList) }
+  = Workspace { "WorkspaceId" :: Maybe (WorkspaceId), "DirectoryId" :: Maybe (DirectoryId), "UserName" :: Maybe (UserName), "IpAddress" :: Maybe (IpAddress), "State" :: Maybe (WorkspaceState), "BundleId" :: Maybe (BundleId), "SubnetId" :: Maybe (SubnetId), "ErrorMessage" :: Maybe (Description), "ErrorCode" :: Maybe (WorkspaceErrorCode), "ComputerName" :: Maybe (ComputerName), "VolumeEncryptionKey" :: Maybe (VolumeEncryptionKey), "UserVolumeEncryptionEnabled" :: Maybe (BooleanObject), "RootVolumeEncryptionEnabled" :: Maybe (BooleanObject), "WorkspaceProperties" :: Maybe (WorkspaceProperties), "ModificationStates" :: Maybe (ModificationStateList) }
 ```
 
 <p>Information about a WorkSpace.</p>
@@ -2413,7 +2413,7 @@ Constructs Workspace from required parameters
 #### `newWorkspace'`
 
 ``` purescript
-newWorkspace' :: ({ "WorkspaceId" :: NullOrUndefined (WorkspaceId), "DirectoryId" :: NullOrUndefined (DirectoryId), "UserName" :: NullOrUndefined (UserName), "IpAddress" :: NullOrUndefined (IpAddress), "State" :: NullOrUndefined (WorkspaceState), "BundleId" :: NullOrUndefined (BundleId), "SubnetId" :: NullOrUndefined (SubnetId), "ErrorMessage" :: NullOrUndefined (Description), "ErrorCode" :: NullOrUndefined (WorkspaceErrorCode), "ComputerName" :: NullOrUndefined (ComputerName), "VolumeEncryptionKey" :: NullOrUndefined (VolumeEncryptionKey), "UserVolumeEncryptionEnabled" :: NullOrUndefined (BooleanObject), "RootVolumeEncryptionEnabled" :: NullOrUndefined (BooleanObject), "WorkspaceProperties" :: NullOrUndefined (WorkspaceProperties), "ModificationStates" :: NullOrUndefined (ModificationStateList) } -> { "WorkspaceId" :: NullOrUndefined (WorkspaceId), "DirectoryId" :: NullOrUndefined (DirectoryId), "UserName" :: NullOrUndefined (UserName), "IpAddress" :: NullOrUndefined (IpAddress), "State" :: NullOrUndefined (WorkspaceState), "BundleId" :: NullOrUndefined (BundleId), "SubnetId" :: NullOrUndefined (SubnetId), "ErrorMessage" :: NullOrUndefined (Description), "ErrorCode" :: NullOrUndefined (WorkspaceErrorCode), "ComputerName" :: NullOrUndefined (ComputerName), "VolumeEncryptionKey" :: NullOrUndefined (VolumeEncryptionKey), "UserVolumeEncryptionEnabled" :: NullOrUndefined (BooleanObject), "RootVolumeEncryptionEnabled" :: NullOrUndefined (BooleanObject), "WorkspaceProperties" :: NullOrUndefined (WorkspaceProperties), "ModificationStates" :: NullOrUndefined (ModificationStateList) }) -> Workspace
+newWorkspace' :: ({ "WorkspaceId" :: Maybe (WorkspaceId), "DirectoryId" :: Maybe (DirectoryId), "UserName" :: Maybe (UserName), "IpAddress" :: Maybe (IpAddress), "State" :: Maybe (WorkspaceState), "BundleId" :: Maybe (BundleId), "SubnetId" :: Maybe (SubnetId), "ErrorMessage" :: Maybe (Description), "ErrorCode" :: Maybe (WorkspaceErrorCode), "ComputerName" :: Maybe (ComputerName), "VolumeEncryptionKey" :: Maybe (VolumeEncryptionKey), "UserVolumeEncryptionEnabled" :: Maybe (BooleanObject), "RootVolumeEncryptionEnabled" :: Maybe (BooleanObject), "WorkspaceProperties" :: Maybe (WorkspaceProperties), "ModificationStates" :: Maybe (ModificationStateList) } -> { "WorkspaceId" :: Maybe (WorkspaceId), "DirectoryId" :: Maybe (DirectoryId), "UserName" :: Maybe (UserName), "IpAddress" :: Maybe (IpAddress), "State" :: Maybe (WorkspaceState), "BundleId" :: Maybe (BundleId), "SubnetId" :: Maybe (SubnetId), "ErrorMessage" :: Maybe (Description), "ErrorCode" :: Maybe (WorkspaceErrorCode), "ComputerName" :: Maybe (ComputerName), "VolumeEncryptionKey" :: Maybe (VolumeEncryptionKey), "UserVolumeEncryptionEnabled" :: Maybe (BooleanObject), "RootVolumeEncryptionEnabled" :: Maybe (BooleanObject), "WorkspaceProperties" :: Maybe (WorkspaceProperties), "ModificationStates" :: Maybe (ModificationStateList) }) -> Workspace
 ```
 
 Constructs Workspace's fields from required parameters
@@ -2422,7 +2422,7 @@ Constructs Workspace's fields from required parameters
 
 ``` purescript
 newtype WorkspaceBundle
-  = WorkspaceBundle { "BundleId" :: NullOrUndefined (BundleId), "Name" :: NullOrUndefined (NonEmptyString), "Owner" :: NullOrUndefined (BundleOwner), "Description" :: NullOrUndefined (Description), "RootStorage" :: NullOrUndefined (RootStorage), "UserStorage" :: NullOrUndefined (UserStorage), "ComputeType" :: NullOrUndefined (ComputeType) }
+  = WorkspaceBundle { "BundleId" :: Maybe (BundleId), "Name" :: Maybe (NonEmptyString), "Owner" :: Maybe (BundleOwner), "Description" :: Maybe (Description), "RootStorage" :: Maybe (RootStorage), "UserStorage" :: Maybe (UserStorage), "ComputeType" :: Maybe (ComputeType) }
 ```
 
 <p>Information about a WorkSpace bundle.</p>
@@ -2447,7 +2447,7 @@ Constructs WorkspaceBundle from required parameters
 #### `newWorkspaceBundle'`
 
 ``` purescript
-newWorkspaceBundle' :: ({ "BundleId" :: NullOrUndefined (BundleId), "Name" :: NullOrUndefined (NonEmptyString), "Owner" :: NullOrUndefined (BundleOwner), "Description" :: NullOrUndefined (Description), "RootStorage" :: NullOrUndefined (RootStorage), "UserStorage" :: NullOrUndefined (UserStorage), "ComputeType" :: NullOrUndefined (ComputeType) } -> { "BundleId" :: NullOrUndefined (BundleId), "Name" :: NullOrUndefined (NonEmptyString), "Owner" :: NullOrUndefined (BundleOwner), "Description" :: NullOrUndefined (Description), "RootStorage" :: NullOrUndefined (RootStorage), "UserStorage" :: NullOrUndefined (UserStorage), "ComputeType" :: NullOrUndefined (ComputeType) }) -> WorkspaceBundle
+newWorkspaceBundle' :: ({ "BundleId" :: Maybe (BundleId), "Name" :: Maybe (NonEmptyString), "Owner" :: Maybe (BundleOwner), "Description" :: Maybe (Description), "RootStorage" :: Maybe (RootStorage), "UserStorage" :: Maybe (UserStorage), "ComputeType" :: Maybe (ComputeType) } -> { "BundleId" :: Maybe (BundleId), "Name" :: Maybe (NonEmptyString), "Owner" :: Maybe (BundleOwner), "Description" :: Maybe (Description), "RootStorage" :: Maybe (RootStorage), "UserStorage" :: Maybe (UserStorage), "ComputeType" :: Maybe (ComputeType) }) -> WorkspaceBundle
 ```
 
 Constructs WorkspaceBundle's fields from required parameters
@@ -2456,7 +2456,7 @@ Constructs WorkspaceBundle's fields from required parameters
 
 ``` purescript
 newtype WorkspaceConnectionStatus
-  = WorkspaceConnectionStatus { "WorkspaceId" :: NullOrUndefined (WorkspaceId), "ConnectionState" :: NullOrUndefined (ConnectionState), "ConnectionStateCheckTimestamp" :: NullOrUndefined (Timestamp), "LastKnownUserConnectionTimestamp" :: NullOrUndefined (Timestamp) }
+  = WorkspaceConnectionStatus { "WorkspaceId" :: Maybe (WorkspaceId), "ConnectionState" :: Maybe (ConnectionState), "ConnectionStateCheckTimestamp" :: Maybe (Timestamp), "LastKnownUserConnectionTimestamp" :: Maybe (Timestamp) }
 ```
 
 <p>Describes the connection status of a WorkSpace.</p>
@@ -2481,7 +2481,7 @@ Constructs WorkspaceConnectionStatus from required parameters
 #### `newWorkspaceConnectionStatus'`
 
 ``` purescript
-newWorkspaceConnectionStatus' :: ({ "WorkspaceId" :: NullOrUndefined (WorkspaceId), "ConnectionState" :: NullOrUndefined (ConnectionState), "ConnectionStateCheckTimestamp" :: NullOrUndefined (Timestamp), "LastKnownUserConnectionTimestamp" :: NullOrUndefined (Timestamp) } -> { "WorkspaceId" :: NullOrUndefined (WorkspaceId), "ConnectionState" :: NullOrUndefined (ConnectionState), "ConnectionStateCheckTimestamp" :: NullOrUndefined (Timestamp), "LastKnownUserConnectionTimestamp" :: NullOrUndefined (Timestamp) }) -> WorkspaceConnectionStatus
+newWorkspaceConnectionStatus' :: ({ "WorkspaceId" :: Maybe (WorkspaceId), "ConnectionState" :: Maybe (ConnectionState), "ConnectionStateCheckTimestamp" :: Maybe (Timestamp), "LastKnownUserConnectionTimestamp" :: Maybe (Timestamp) } -> { "WorkspaceId" :: Maybe (WorkspaceId), "ConnectionState" :: Maybe (ConnectionState), "ConnectionStateCheckTimestamp" :: Maybe (Timestamp), "LastKnownUserConnectionTimestamp" :: Maybe (Timestamp) }) -> WorkspaceConnectionStatus
 ```
 
 Constructs WorkspaceConnectionStatus's fields from required parameters
@@ -2506,7 +2506,7 @@ Encode WorkspaceConnectionStatusList
 
 ``` purescript
 newtype WorkspaceDirectory
-  = WorkspaceDirectory { "DirectoryId" :: NullOrUndefined (DirectoryId), "Alias" :: NullOrUndefined (Alias), "DirectoryName" :: NullOrUndefined (DirectoryName), "RegistrationCode" :: NullOrUndefined (RegistrationCode), "SubnetIds" :: NullOrUndefined (SubnetIds), "DnsIpAddresses" :: NullOrUndefined (DnsIpAddresses), "CustomerUserName" :: NullOrUndefined (UserName), "IamRoleId" :: NullOrUndefined (ARN), "DirectoryType" :: NullOrUndefined (WorkspaceDirectoryType), "WorkspaceSecurityGroupId" :: NullOrUndefined (SecurityGroupId), "State" :: NullOrUndefined (WorkspaceDirectoryState), "WorkspaceCreationProperties" :: NullOrUndefined (DefaultWorkspaceCreationProperties) }
+  = WorkspaceDirectory { "DirectoryId" :: Maybe (DirectoryId), "Alias" :: Maybe (Alias), "DirectoryName" :: Maybe (DirectoryName), "RegistrationCode" :: Maybe (RegistrationCode), "SubnetIds" :: Maybe (SubnetIds), "DnsIpAddresses" :: Maybe (DnsIpAddresses), "CustomerUserName" :: Maybe (UserName), "IamRoleId" :: Maybe (ARN), "DirectoryType" :: Maybe (WorkspaceDirectoryType), "WorkspaceSecurityGroupId" :: Maybe (SecurityGroupId), "State" :: Maybe (WorkspaceDirectoryState), "WorkspaceCreationProperties" :: Maybe (DefaultWorkspaceCreationProperties) }
 ```
 
 <p>Contains information about an AWS Directory Service directory for use with Amazon WorkSpaces.</p>
@@ -2531,7 +2531,7 @@ Constructs WorkspaceDirectory from required parameters
 #### `newWorkspaceDirectory'`
 
 ``` purescript
-newWorkspaceDirectory' :: ({ "DirectoryId" :: NullOrUndefined (DirectoryId), "Alias" :: NullOrUndefined (Alias), "DirectoryName" :: NullOrUndefined (DirectoryName), "RegistrationCode" :: NullOrUndefined (RegistrationCode), "SubnetIds" :: NullOrUndefined (SubnetIds), "DnsIpAddresses" :: NullOrUndefined (DnsIpAddresses), "CustomerUserName" :: NullOrUndefined (UserName), "IamRoleId" :: NullOrUndefined (ARN), "DirectoryType" :: NullOrUndefined (WorkspaceDirectoryType), "WorkspaceSecurityGroupId" :: NullOrUndefined (SecurityGroupId), "State" :: NullOrUndefined (WorkspaceDirectoryState), "WorkspaceCreationProperties" :: NullOrUndefined (DefaultWorkspaceCreationProperties) } -> { "DirectoryId" :: NullOrUndefined (DirectoryId), "Alias" :: NullOrUndefined (Alias), "DirectoryName" :: NullOrUndefined (DirectoryName), "RegistrationCode" :: NullOrUndefined (RegistrationCode), "SubnetIds" :: NullOrUndefined (SubnetIds), "DnsIpAddresses" :: NullOrUndefined (DnsIpAddresses), "CustomerUserName" :: NullOrUndefined (UserName), "IamRoleId" :: NullOrUndefined (ARN), "DirectoryType" :: NullOrUndefined (WorkspaceDirectoryType), "WorkspaceSecurityGroupId" :: NullOrUndefined (SecurityGroupId), "State" :: NullOrUndefined (WorkspaceDirectoryState), "WorkspaceCreationProperties" :: NullOrUndefined (DefaultWorkspaceCreationProperties) }) -> WorkspaceDirectory
+newWorkspaceDirectory' :: ({ "DirectoryId" :: Maybe (DirectoryId), "Alias" :: Maybe (Alias), "DirectoryName" :: Maybe (DirectoryName), "RegistrationCode" :: Maybe (RegistrationCode), "SubnetIds" :: Maybe (SubnetIds), "DnsIpAddresses" :: Maybe (DnsIpAddresses), "CustomerUserName" :: Maybe (UserName), "IamRoleId" :: Maybe (ARN), "DirectoryType" :: Maybe (WorkspaceDirectoryType), "WorkspaceSecurityGroupId" :: Maybe (SecurityGroupId), "State" :: Maybe (WorkspaceDirectoryState), "WorkspaceCreationProperties" :: Maybe (DefaultWorkspaceCreationProperties) } -> { "DirectoryId" :: Maybe (DirectoryId), "Alias" :: Maybe (Alias), "DirectoryName" :: Maybe (DirectoryName), "RegistrationCode" :: Maybe (RegistrationCode), "SubnetIds" :: Maybe (SubnetIds), "DnsIpAddresses" :: Maybe (DnsIpAddresses), "CustomerUserName" :: Maybe (UserName), "IamRoleId" :: Maybe (ARN), "DirectoryType" :: Maybe (WorkspaceDirectoryType), "WorkspaceSecurityGroupId" :: Maybe (SecurityGroupId), "State" :: Maybe (WorkspaceDirectoryState), "WorkspaceCreationProperties" :: Maybe (DefaultWorkspaceCreationProperties) }) -> WorkspaceDirectory
 ```
 
 Constructs WorkspaceDirectory's fields from required parameters
@@ -2636,7 +2636,7 @@ Encode WorkspaceList
 
 ``` purescript
 newtype WorkspaceProperties
-  = WorkspaceProperties { "RunningMode" :: NullOrUndefined (RunningMode), "RunningModeAutoStopTimeoutInMinutes" :: NullOrUndefined (RunningModeAutoStopTimeoutInMinutes), "RootVolumeSizeGib" :: NullOrUndefined (RootVolumeSizeGib), "UserVolumeSizeGib" :: NullOrUndefined (UserVolumeSizeGib), "ComputeTypeName" :: NullOrUndefined (Compute) }
+  = WorkspaceProperties { "RunningMode" :: Maybe (RunningMode), "RunningModeAutoStopTimeoutInMinutes" :: Maybe (RunningModeAutoStopTimeoutInMinutes), "RootVolumeSizeGib" :: Maybe (RootVolumeSizeGib), "UserVolumeSizeGib" :: Maybe (UserVolumeSizeGib), "ComputeTypeName" :: Maybe (Compute) }
 ```
 
 <p>Information about a WorkSpace.</p>
@@ -2661,7 +2661,7 @@ Constructs WorkspaceProperties from required parameters
 #### `newWorkspaceProperties'`
 
 ``` purescript
-newWorkspaceProperties' :: ({ "RunningMode" :: NullOrUndefined (RunningMode), "RunningModeAutoStopTimeoutInMinutes" :: NullOrUndefined (RunningModeAutoStopTimeoutInMinutes), "RootVolumeSizeGib" :: NullOrUndefined (RootVolumeSizeGib), "UserVolumeSizeGib" :: NullOrUndefined (UserVolumeSizeGib), "ComputeTypeName" :: NullOrUndefined (Compute) } -> { "RunningMode" :: NullOrUndefined (RunningMode), "RunningModeAutoStopTimeoutInMinutes" :: NullOrUndefined (RunningModeAutoStopTimeoutInMinutes), "RootVolumeSizeGib" :: NullOrUndefined (RootVolumeSizeGib), "UserVolumeSizeGib" :: NullOrUndefined (UserVolumeSizeGib), "ComputeTypeName" :: NullOrUndefined (Compute) }) -> WorkspaceProperties
+newWorkspaceProperties' :: ({ "RunningMode" :: Maybe (RunningMode), "RunningModeAutoStopTimeoutInMinutes" :: Maybe (RunningModeAutoStopTimeoutInMinutes), "RootVolumeSizeGib" :: Maybe (RootVolumeSizeGib), "UserVolumeSizeGib" :: Maybe (UserVolumeSizeGib), "ComputeTypeName" :: Maybe (Compute) } -> { "RunningMode" :: Maybe (RunningMode), "RunningModeAutoStopTimeoutInMinutes" :: Maybe (RunningModeAutoStopTimeoutInMinutes), "RootVolumeSizeGib" :: Maybe (RootVolumeSizeGib), "UserVolumeSizeGib" :: Maybe (UserVolumeSizeGib), "ComputeTypeName" :: Maybe (Compute) }) -> WorkspaceProperties
 ```
 
 Constructs WorkspaceProperties's fields from required parameters
@@ -2670,7 +2670,7 @@ Constructs WorkspaceProperties's fields from required parameters
 
 ``` purescript
 newtype WorkspaceRequest
-  = WorkspaceRequest { "DirectoryId" :: DirectoryId, "UserName" :: UserName, "BundleId" :: BundleId, "VolumeEncryptionKey" :: NullOrUndefined (VolumeEncryptionKey), "UserVolumeEncryptionEnabled" :: NullOrUndefined (BooleanObject), "RootVolumeEncryptionEnabled" :: NullOrUndefined (BooleanObject), "WorkspaceProperties" :: NullOrUndefined (WorkspaceProperties), "Tags" :: NullOrUndefined (TagList) }
+  = WorkspaceRequest { "DirectoryId" :: DirectoryId, "UserName" :: UserName, "BundleId" :: BundleId, "VolumeEncryptionKey" :: Maybe (VolumeEncryptionKey), "UserVolumeEncryptionEnabled" :: Maybe (BooleanObject), "RootVolumeEncryptionEnabled" :: Maybe (BooleanObject), "WorkspaceProperties" :: Maybe (WorkspaceProperties), "Tags" :: Maybe (TagList) }
 ```
 
 <p>Information used to create a WorkSpace.</p>
@@ -2695,7 +2695,7 @@ Constructs WorkspaceRequest from required parameters
 #### `newWorkspaceRequest'`
 
 ``` purescript
-newWorkspaceRequest' :: BundleId -> DirectoryId -> UserName -> ({ "DirectoryId" :: DirectoryId, "UserName" :: UserName, "BundleId" :: BundleId, "VolumeEncryptionKey" :: NullOrUndefined (VolumeEncryptionKey), "UserVolumeEncryptionEnabled" :: NullOrUndefined (BooleanObject), "RootVolumeEncryptionEnabled" :: NullOrUndefined (BooleanObject), "WorkspaceProperties" :: NullOrUndefined (WorkspaceProperties), "Tags" :: NullOrUndefined (TagList) } -> { "DirectoryId" :: DirectoryId, "UserName" :: UserName, "BundleId" :: BundleId, "VolumeEncryptionKey" :: NullOrUndefined (VolumeEncryptionKey), "UserVolumeEncryptionEnabled" :: NullOrUndefined (BooleanObject), "RootVolumeEncryptionEnabled" :: NullOrUndefined (BooleanObject), "WorkspaceProperties" :: NullOrUndefined (WorkspaceProperties), "Tags" :: NullOrUndefined (TagList) }) -> WorkspaceRequest
+newWorkspaceRequest' :: BundleId -> DirectoryId -> UserName -> ({ "DirectoryId" :: DirectoryId, "UserName" :: UserName, "BundleId" :: BundleId, "VolumeEncryptionKey" :: Maybe (VolumeEncryptionKey), "UserVolumeEncryptionEnabled" :: Maybe (BooleanObject), "RootVolumeEncryptionEnabled" :: Maybe (BooleanObject), "WorkspaceProperties" :: Maybe (WorkspaceProperties), "Tags" :: Maybe (TagList) } -> { "DirectoryId" :: DirectoryId, "UserName" :: UserName, "BundleId" :: BundleId, "VolumeEncryptionKey" :: Maybe (VolumeEncryptionKey), "UserVolumeEncryptionEnabled" :: Maybe (BooleanObject), "RootVolumeEncryptionEnabled" :: Maybe (BooleanObject), "WorkspaceProperties" :: Maybe (WorkspaceProperties), "Tags" :: Maybe (TagList) }) -> WorkspaceRequest
 ```
 
 Constructs WorkspaceRequest's fields from required parameters

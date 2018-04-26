@@ -5,7 +5,6 @@ import Prelude
 import Data.Foreign.Class (class Decode, class Encode)
 import Data.Foreign.Generic (defaultOptions, genericDecode, genericEncode)
 import Data.Foreign.Generic.Types (Options)
-import Data.Foreign.NullOrUndefined (NullOrUndefined(..))
 import Data.Generic.Rep (class Generic)
 import Data.Generic.Rep.Show (genericShow)
 import Data.Maybe (Maybe(..))
@@ -29,7 +28,7 @@ instance encodeARN :: Encode ARN where encode = genericEncode options
 
 -- | <p>The user is not authorized to access a resource.</p>
 newtype AccessDeniedException = AccessDeniedException 
-  { "message" :: NullOrUndefined (ExceptionMessage)
+  { "message" :: Maybe (ExceptionMessage)
   }
 derive instance newtypeAccessDeniedException :: Newtype AccessDeniedException _
 derive instance repGenericAccessDeniedException :: Generic AccessDeniedException _
@@ -39,12 +38,12 @@ instance encodeAccessDeniedException :: Encode AccessDeniedException where encod
 
 -- | Constructs AccessDeniedException from required parameters
 newAccessDeniedException :: AccessDeniedException
-newAccessDeniedException  = AccessDeniedException { "message": (NullOrUndefined Nothing) }
+newAccessDeniedException  = AccessDeniedException { "message": Nothing }
 
 -- | Constructs AccessDeniedException's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newAccessDeniedException' :: ( { "message" :: NullOrUndefined (ExceptionMessage) } -> {"message" :: NullOrUndefined (ExceptionMessage) } ) -> AccessDeniedException
-newAccessDeniedException'  customize = (AccessDeniedException <<< customize) { "message": (NullOrUndefined Nothing) }
+newAccessDeniedException' :: ( { "message" :: Maybe (ExceptionMessage) } -> {"message" :: Maybe (ExceptionMessage) } ) -> AccessDeniedException
+newAccessDeniedException'  customize = (AccessDeniedException <<< customize) { "message": Nothing }
 
 
 
@@ -113,7 +112,7 @@ instance encodeCompute :: Encode Compute where encode = genericEncode options
 
 -- | <p>Information about the compute type.</p>
 newtype ComputeType = ComputeType 
-  { "Name" :: NullOrUndefined (Compute)
+  { "Name" :: Maybe (Compute)
   }
 derive instance newtypeComputeType :: Newtype ComputeType _
 derive instance repGenericComputeType :: Generic ComputeType _
@@ -123,12 +122,12 @@ instance encodeComputeType :: Encode ComputeType where encode = genericEncode op
 
 -- | Constructs ComputeType from required parameters
 newComputeType :: ComputeType
-newComputeType  = ComputeType { "Name": (NullOrUndefined Nothing) }
+newComputeType  = ComputeType { "Name": Nothing }
 
 -- | Constructs ComputeType's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newComputeType' :: ( { "Name" :: NullOrUndefined (Compute) } -> {"Name" :: NullOrUndefined (Compute) } ) -> ComputeType
-newComputeType'  customize = (ComputeType <<< customize) { "Name": (NullOrUndefined Nothing) }
+newComputeType' :: ( { "Name" :: Maybe (Compute) } -> {"Name" :: Maybe (Compute) } ) -> ComputeType
+newComputeType'  customize = (ComputeType <<< customize) { "Name": Nothing }
 
 
 
@@ -201,8 +200,8 @@ newCreateWorkspacesRequest' _Workspaces customize = (CreateWorkspacesRequest <<<
 
 
 newtype CreateWorkspacesResult = CreateWorkspacesResult 
-  { "FailedRequests" :: NullOrUndefined (FailedCreateWorkspaceRequests)
-  , "PendingRequests" :: NullOrUndefined (WorkspaceList)
+  { "FailedRequests" :: Maybe (FailedCreateWorkspaceRequests)
+  , "PendingRequests" :: Maybe (WorkspaceList)
   }
 derive instance newtypeCreateWorkspacesResult :: Newtype CreateWorkspacesResult _
 derive instance repGenericCreateWorkspacesResult :: Generic CreateWorkspacesResult _
@@ -212,12 +211,12 @@ instance encodeCreateWorkspacesResult :: Encode CreateWorkspacesResult where enc
 
 -- | Constructs CreateWorkspacesResult from required parameters
 newCreateWorkspacesResult :: CreateWorkspacesResult
-newCreateWorkspacesResult  = CreateWorkspacesResult { "FailedRequests": (NullOrUndefined Nothing), "PendingRequests": (NullOrUndefined Nothing) }
+newCreateWorkspacesResult  = CreateWorkspacesResult { "FailedRequests": Nothing, "PendingRequests": Nothing }
 
 -- | Constructs CreateWorkspacesResult's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newCreateWorkspacesResult' :: ( { "FailedRequests" :: NullOrUndefined (FailedCreateWorkspaceRequests) , "PendingRequests" :: NullOrUndefined (WorkspaceList) } -> {"FailedRequests" :: NullOrUndefined (FailedCreateWorkspaceRequests) , "PendingRequests" :: NullOrUndefined (WorkspaceList) } ) -> CreateWorkspacesResult
-newCreateWorkspacesResult'  customize = (CreateWorkspacesResult <<< customize) { "FailedRequests": (NullOrUndefined Nothing), "PendingRequests": (NullOrUndefined Nothing) }
+newCreateWorkspacesResult' :: ( { "FailedRequests" :: Maybe (FailedCreateWorkspaceRequests) , "PendingRequests" :: Maybe (WorkspaceList) } -> {"FailedRequests" :: Maybe (FailedCreateWorkspaceRequests) , "PendingRequests" :: Maybe (WorkspaceList) } ) -> CreateWorkspacesResult
+newCreateWorkspacesResult'  customize = (CreateWorkspacesResult <<< customize) { "FailedRequests": Nothing, "PendingRequests": Nothing }
 
 
 
@@ -232,11 +231,11 @@ instance encodeDefaultOu :: Encode DefaultOu where encode = genericEncode option
 
 -- | <p>Information about defaults used to create a WorkSpace.</p>
 newtype DefaultWorkspaceCreationProperties = DefaultWorkspaceCreationProperties 
-  { "EnableWorkDocs" :: NullOrUndefined (BooleanObject)
-  , "EnableInternetAccess" :: NullOrUndefined (BooleanObject)
-  , "DefaultOu" :: NullOrUndefined (DefaultOu)
-  , "CustomSecurityGroupId" :: NullOrUndefined (SecurityGroupId)
-  , "UserEnabledAsLocalAdministrator" :: NullOrUndefined (BooleanObject)
+  { "EnableWorkDocs" :: Maybe (BooleanObject)
+  , "EnableInternetAccess" :: Maybe (BooleanObject)
+  , "DefaultOu" :: Maybe (DefaultOu)
+  , "CustomSecurityGroupId" :: Maybe (SecurityGroupId)
+  , "UserEnabledAsLocalAdministrator" :: Maybe (BooleanObject)
   }
 derive instance newtypeDefaultWorkspaceCreationProperties :: Newtype DefaultWorkspaceCreationProperties _
 derive instance repGenericDefaultWorkspaceCreationProperties :: Generic DefaultWorkspaceCreationProperties _
@@ -246,12 +245,12 @@ instance encodeDefaultWorkspaceCreationProperties :: Encode DefaultWorkspaceCrea
 
 -- | Constructs DefaultWorkspaceCreationProperties from required parameters
 newDefaultWorkspaceCreationProperties :: DefaultWorkspaceCreationProperties
-newDefaultWorkspaceCreationProperties  = DefaultWorkspaceCreationProperties { "CustomSecurityGroupId": (NullOrUndefined Nothing), "DefaultOu": (NullOrUndefined Nothing), "EnableInternetAccess": (NullOrUndefined Nothing), "EnableWorkDocs": (NullOrUndefined Nothing), "UserEnabledAsLocalAdministrator": (NullOrUndefined Nothing) }
+newDefaultWorkspaceCreationProperties  = DefaultWorkspaceCreationProperties { "CustomSecurityGroupId": Nothing, "DefaultOu": Nothing, "EnableInternetAccess": Nothing, "EnableWorkDocs": Nothing, "UserEnabledAsLocalAdministrator": Nothing }
 
 -- | Constructs DefaultWorkspaceCreationProperties's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newDefaultWorkspaceCreationProperties' :: ( { "EnableWorkDocs" :: NullOrUndefined (BooleanObject) , "EnableInternetAccess" :: NullOrUndefined (BooleanObject) , "DefaultOu" :: NullOrUndefined (DefaultOu) , "CustomSecurityGroupId" :: NullOrUndefined (SecurityGroupId) , "UserEnabledAsLocalAdministrator" :: NullOrUndefined (BooleanObject) } -> {"EnableWorkDocs" :: NullOrUndefined (BooleanObject) , "EnableInternetAccess" :: NullOrUndefined (BooleanObject) , "DefaultOu" :: NullOrUndefined (DefaultOu) , "CustomSecurityGroupId" :: NullOrUndefined (SecurityGroupId) , "UserEnabledAsLocalAdministrator" :: NullOrUndefined (BooleanObject) } ) -> DefaultWorkspaceCreationProperties
-newDefaultWorkspaceCreationProperties'  customize = (DefaultWorkspaceCreationProperties <<< customize) { "CustomSecurityGroupId": (NullOrUndefined Nothing), "DefaultOu": (NullOrUndefined Nothing), "EnableInternetAccess": (NullOrUndefined Nothing), "EnableWorkDocs": (NullOrUndefined Nothing), "UserEnabledAsLocalAdministrator": (NullOrUndefined Nothing) }
+newDefaultWorkspaceCreationProperties' :: ( { "EnableWorkDocs" :: Maybe (BooleanObject) , "EnableInternetAccess" :: Maybe (BooleanObject) , "DefaultOu" :: Maybe (DefaultOu) , "CustomSecurityGroupId" :: Maybe (SecurityGroupId) , "UserEnabledAsLocalAdministrator" :: Maybe (BooleanObject) } -> {"EnableWorkDocs" :: Maybe (BooleanObject) , "EnableInternetAccess" :: Maybe (BooleanObject) , "DefaultOu" :: Maybe (DefaultOu) , "CustomSecurityGroupId" :: Maybe (SecurityGroupId) , "UserEnabledAsLocalAdministrator" :: Maybe (BooleanObject) } ) -> DefaultWorkspaceCreationProperties
+newDefaultWorkspaceCreationProperties'  customize = (DefaultWorkspaceCreationProperties <<< customize) { "CustomSecurityGroupId": Nothing, "DefaultOu": Nothing, "EnableInternetAccess": Nothing, "EnableWorkDocs": Nothing, "UserEnabledAsLocalAdministrator": Nothing }
 
 
 
@@ -306,7 +305,7 @@ newDescribeTagsRequest' _ResourceId customize = (DescribeTagsRequest <<< customi
 
 
 newtype DescribeTagsResult = DescribeTagsResult 
-  { "TagList" :: NullOrUndefined (TagList)
+  { "TagList" :: Maybe (TagList)
   }
 derive instance newtypeDescribeTagsResult :: Newtype DescribeTagsResult _
 derive instance repGenericDescribeTagsResult :: Generic DescribeTagsResult _
@@ -316,19 +315,19 @@ instance encodeDescribeTagsResult :: Encode DescribeTagsResult where encode = ge
 
 -- | Constructs DescribeTagsResult from required parameters
 newDescribeTagsResult :: DescribeTagsResult
-newDescribeTagsResult  = DescribeTagsResult { "TagList": (NullOrUndefined Nothing) }
+newDescribeTagsResult  = DescribeTagsResult { "TagList": Nothing }
 
 -- | Constructs DescribeTagsResult's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newDescribeTagsResult' :: ( { "TagList" :: NullOrUndefined (TagList) } -> {"TagList" :: NullOrUndefined (TagList) } ) -> DescribeTagsResult
-newDescribeTagsResult'  customize = (DescribeTagsResult <<< customize) { "TagList": (NullOrUndefined Nothing) }
+newDescribeTagsResult' :: ( { "TagList" :: Maybe (TagList) } -> {"TagList" :: Maybe (TagList) } ) -> DescribeTagsResult
+newDescribeTagsResult'  customize = (DescribeTagsResult <<< customize) { "TagList": Nothing }
 
 
 
 newtype DescribeWorkspaceBundlesRequest = DescribeWorkspaceBundlesRequest 
-  { "BundleIds" :: NullOrUndefined (BundleIdList)
-  , "Owner" :: NullOrUndefined (BundleOwner)
-  , "NextToken" :: NullOrUndefined (PaginationToken)
+  { "BundleIds" :: Maybe (BundleIdList)
+  , "Owner" :: Maybe (BundleOwner)
+  , "NextToken" :: Maybe (PaginationToken)
   }
 derive instance newtypeDescribeWorkspaceBundlesRequest :: Newtype DescribeWorkspaceBundlesRequest _
 derive instance repGenericDescribeWorkspaceBundlesRequest :: Generic DescribeWorkspaceBundlesRequest _
@@ -338,18 +337,18 @@ instance encodeDescribeWorkspaceBundlesRequest :: Encode DescribeWorkspaceBundle
 
 -- | Constructs DescribeWorkspaceBundlesRequest from required parameters
 newDescribeWorkspaceBundlesRequest :: DescribeWorkspaceBundlesRequest
-newDescribeWorkspaceBundlesRequest  = DescribeWorkspaceBundlesRequest { "BundleIds": (NullOrUndefined Nothing), "NextToken": (NullOrUndefined Nothing), "Owner": (NullOrUndefined Nothing) }
+newDescribeWorkspaceBundlesRequest  = DescribeWorkspaceBundlesRequest { "BundleIds": Nothing, "NextToken": Nothing, "Owner": Nothing }
 
 -- | Constructs DescribeWorkspaceBundlesRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newDescribeWorkspaceBundlesRequest' :: ( { "BundleIds" :: NullOrUndefined (BundleIdList) , "Owner" :: NullOrUndefined (BundleOwner) , "NextToken" :: NullOrUndefined (PaginationToken) } -> {"BundleIds" :: NullOrUndefined (BundleIdList) , "Owner" :: NullOrUndefined (BundleOwner) , "NextToken" :: NullOrUndefined (PaginationToken) } ) -> DescribeWorkspaceBundlesRequest
-newDescribeWorkspaceBundlesRequest'  customize = (DescribeWorkspaceBundlesRequest <<< customize) { "BundleIds": (NullOrUndefined Nothing), "NextToken": (NullOrUndefined Nothing), "Owner": (NullOrUndefined Nothing) }
+newDescribeWorkspaceBundlesRequest' :: ( { "BundleIds" :: Maybe (BundleIdList) , "Owner" :: Maybe (BundleOwner) , "NextToken" :: Maybe (PaginationToken) } -> {"BundleIds" :: Maybe (BundleIdList) , "Owner" :: Maybe (BundleOwner) , "NextToken" :: Maybe (PaginationToken) } ) -> DescribeWorkspaceBundlesRequest
+newDescribeWorkspaceBundlesRequest'  customize = (DescribeWorkspaceBundlesRequest <<< customize) { "BundleIds": Nothing, "NextToken": Nothing, "Owner": Nothing }
 
 
 
 newtype DescribeWorkspaceBundlesResult = DescribeWorkspaceBundlesResult 
-  { "Bundles" :: NullOrUndefined (BundleList)
-  , "NextToken" :: NullOrUndefined (PaginationToken)
+  { "Bundles" :: Maybe (BundleList)
+  , "NextToken" :: Maybe (PaginationToken)
   }
 derive instance newtypeDescribeWorkspaceBundlesResult :: Newtype DescribeWorkspaceBundlesResult _
 derive instance repGenericDescribeWorkspaceBundlesResult :: Generic DescribeWorkspaceBundlesResult _
@@ -359,18 +358,18 @@ instance encodeDescribeWorkspaceBundlesResult :: Encode DescribeWorkspaceBundles
 
 -- | Constructs DescribeWorkspaceBundlesResult from required parameters
 newDescribeWorkspaceBundlesResult :: DescribeWorkspaceBundlesResult
-newDescribeWorkspaceBundlesResult  = DescribeWorkspaceBundlesResult { "Bundles": (NullOrUndefined Nothing), "NextToken": (NullOrUndefined Nothing) }
+newDescribeWorkspaceBundlesResult  = DescribeWorkspaceBundlesResult { "Bundles": Nothing, "NextToken": Nothing }
 
 -- | Constructs DescribeWorkspaceBundlesResult's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newDescribeWorkspaceBundlesResult' :: ( { "Bundles" :: NullOrUndefined (BundleList) , "NextToken" :: NullOrUndefined (PaginationToken) } -> {"Bundles" :: NullOrUndefined (BundleList) , "NextToken" :: NullOrUndefined (PaginationToken) } ) -> DescribeWorkspaceBundlesResult
-newDescribeWorkspaceBundlesResult'  customize = (DescribeWorkspaceBundlesResult <<< customize) { "Bundles": (NullOrUndefined Nothing), "NextToken": (NullOrUndefined Nothing) }
+newDescribeWorkspaceBundlesResult' :: ( { "Bundles" :: Maybe (BundleList) , "NextToken" :: Maybe (PaginationToken) } -> {"Bundles" :: Maybe (BundleList) , "NextToken" :: Maybe (PaginationToken) } ) -> DescribeWorkspaceBundlesResult
+newDescribeWorkspaceBundlesResult'  customize = (DescribeWorkspaceBundlesResult <<< customize) { "Bundles": Nothing, "NextToken": Nothing }
 
 
 
 newtype DescribeWorkspaceDirectoriesRequest = DescribeWorkspaceDirectoriesRequest 
-  { "DirectoryIds" :: NullOrUndefined (DirectoryIdList)
-  , "NextToken" :: NullOrUndefined (PaginationToken)
+  { "DirectoryIds" :: Maybe (DirectoryIdList)
+  , "NextToken" :: Maybe (PaginationToken)
   }
 derive instance newtypeDescribeWorkspaceDirectoriesRequest :: Newtype DescribeWorkspaceDirectoriesRequest _
 derive instance repGenericDescribeWorkspaceDirectoriesRequest :: Generic DescribeWorkspaceDirectoriesRequest _
@@ -380,18 +379,18 @@ instance encodeDescribeWorkspaceDirectoriesRequest :: Encode DescribeWorkspaceDi
 
 -- | Constructs DescribeWorkspaceDirectoriesRequest from required parameters
 newDescribeWorkspaceDirectoriesRequest :: DescribeWorkspaceDirectoriesRequest
-newDescribeWorkspaceDirectoriesRequest  = DescribeWorkspaceDirectoriesRequest { "DirectoryIds": (NullOrUndefined Nothing), "NextToken": (NullOrUndefined Nothing) }
+newDescribeWorkspaceDirectoriesRequest  = DescribeWorkspaceDirectoriesRequest { "DirectoryIds": Nothing, "NextToken": Nothing }
 
 -- | Constructs DescribeWorkspaceDirectoriesRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newDescribeWorkspaceDirectoriesRequest' :: ( { "DirectoryIds" :: NullOrUndefined (DirectoryIdList) , "NextToken" :: NullOrUndefined (PaginationToken) } -> {"DirectoryIds" :: NullOrUndefined (DirectoryIdList) , "NextToken" :: NullOrUndefined (PaginationToken) } ) -> DescribeWorkspaceDirectoriesRequest
-newDescribeWorkspaceDirectoriesRequest'  customize = (DescribeWorkspaceDirectoriesRequest <<< customize) { "DirectoryIds": (NullOrUndefined Nothing), "NextToken": (NullOrUndefined Nothing) }
+newDescribeWorkspaceDirectoriesRequest' :: ( { "DirectoryIds" :: Maybe (DirectoryIdList) , "NextToken" :: Maybe (PaginationToken) } -> {"DirectoryIds" :: Maybe (DirectoryIdList) , "NextToken" :: Maybe (PaginationToken) } ) -> DescribeWorkspaceDirectoriesRequest
+newDescribeWorkspaceDirectoriesRequest'  customize = (DescribeWorkspaceDirectoriesRequest <<< customize) { "DirectoryIds": Nothing, "NextToken": Nothing }
 
 
 
 newtype DescribeWorkspaceDirectoriesResult = DescribeWorkspaceDirectoriesResult 
-  { "Directories" :: NullOrUndefined (DirectoryList)
-  , "NextToken" :: NullOrUndefined (PaginationToken)
+  { "Directories" :: Maybe (DirectoryList)
+  , "NextToken" :: Maybe (PaginationToken)
   }
 derive instance newtypeDescribeWorkspaceDirectoriesResult :: Newtype DescribeWorkspaceDirectoriesResult _
 derive instance repGenericDescribeWorkspaceDirectoriesResult :: Generic DescribeWorkspaceDirectoriesResult _
@@ -401,18 +400,18 @@ instance encodeDescribeWorkspaceDirectoriesResult :: Encode DescribeWorkspaceDir
 
 -- | Constructs DescribeWorkspaceDirectoriesResult from required parameters
 newDescribeWorkspaceDirectoriesResult :: DescribeWorkspaceDirectoriesResult
-newDescribeWorkspaceDirectoriesResult  = DescribeWorkspaceDirectoriesResult { "Directories": (NullOrUndefined Nothing), "NextToken": (NullOrUndefined Nothing) }
+newDescribeWorkspaceDirectoriesResult  = DescribeWorkspaceDirectoriesResult { "Directories": Nothing, "NextToken": Nothing }
 
 -- | Constructs DescribeWorkspaceDirectoriesResult's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newDescribeWorkspaceDirectoriesResult' :: ( { "Directories" :: NullOrUndefined (DirectoryList) , "NextToken" :: NullOrUndefined (PaginationToken) } -> {"Directories" :: NullOrUndefined (DirectoryList) , "NextToken" :: NullOrUndefined (PaginationToken) } ) -> DescribeWorkspaceDirectoriesResult
-newDescribeWorkspaceDirectoriesResult'  customize = (DescribeWorkspaceDirectoriesResult <<< customize) { "Directories": (NullOrUndefined Nothing), "NextToken": (NullOrUndefined Nothing) }
+newDescribeWorkspaceDirectoriesResult' :: ( { "Directories" :: Maybe (DirectoryList) , "NextToken" :: Maybe (PaginationToken) } -> {"Directories" :: Maybe (DirectoryList) , "NextToken" :: Maybe (PaginationToken) } ) -> DescribeWorkspaceDirectoriesResult
+newDescribeWorkspaceDirectoriesResult'  customize = (DescribeWorkspaceDirectoriesResult <<< customize) { "Directories": Nothing, "NextToken": Nothing }
 
 
 
 newtype DescribeWorkspacesConnectionStatusRequest = DescribeWorkspacesConnectionStatusRequest 
-  { "WorkspaceIds" :: NullOrUndefined (WorkspaceIdList)
-  , "NextToken" :: NullOrUndefined (PaginationToken)
+  { "WorkspaceIds" :: Maybe (WorkspaceIdList)
+  , "NextToken" :: Maybe (PaginationToken)
   }
 derive instance newtypeDescribeWorkspacesConnectionStatusRequest :: Newtype DescribeWorkspacesConnectionStatusRequest _
 derive instance repGenericDescribeWorkspacesConnectionStatusRequest :: Generic DescribeWorkspacesConnectionStatusRequest _
@@ -422,18 +421,18 @@ instance encodeDescribeWorkspacesConnectionStatusRequest :: Encode DescribeWorks
 
 -- | Constructs DescribeWorkspacesConnectionStatusRequest from required parameters
 newDescribeWorkspacesConnectionStatusRequest :: DescribeWorkspacesConnectionStatusRequest
-newDescribeWorkspacesConnectionStatusRequest  = DescribeWorkspacesConnectionStatusRequest { "NextToken": (NullOrUndefined Nothing), "WorkspaceIds": (NullOrUndefined Nothing) }
+newDescribeWorkspacesConnectionStatusRequest  = DescribeWorkspacesConnectionStatusRequest { "NextToken": Nothing, "WorkspaceIds": Nothing }
 
 -- | Constructs DescribeWorkspacesConnectionStatusRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newDescribeWorkspacesConnectionStatusRequest' :: ( { "WorkspaceIds" :: NullOrUndefined (WorkspaceIdList) , "NextToken" :: NullOrUndefined (PaginationToken) } -> {"WorkspaceIds" :: NullOrUndefined (WorkspaceIdList) , "NextToken" :: NullOrUndefined (PaginationToken) } ) -> DescribeWorkspacesConnectionStatusRequest
-newDescribeWorkspacesConnectionStatusRequest'  customize = (DescribeWorkspacesConnectionStatusRequest <<< customize) { "NextToken": (NullOrUndefined Nothing), "WorkspaceIds": (NullOrUndefined Nothing) }
+newDescribeWorkspacesConnectionStatusRequest' :: ( { "WorkspaceIds" :: Maybe (WorkspaceIdList) , "NextToken" :: Maybe (PaginationToken) } -> {"WorkspaceIds" :: Maybe (WorkspaceIdList) , "NextToken" :: Maybe (PaginationToken) } ) -> DescribeWorkspacesConnectionStatusRequest
+newDescribeWorkspacesConnectionStatusRequest'  customize = (DescribeWorkspacesConnectionStatusRequest <<< customize) { "NextToken": Nothing, "WorkspaceIds": Nothing }
 
 
 
 newtype DescribeWorkspacesConnectionStatusResult = DescribeWorkspacesConnectionStatusResult 
-  { "WorkspacesConnectionStatus" :: NullOrUndefined (WorkspaceConnectionStatusList)
-  , "NextToken" :: NullOrUndefined (PaginationToken)
+  { "WorkspacesConnectionStatus" :: Maybe (WorkspaceConnectionStatusList)
+  , "NextToken" :: Maybe (PaginationToken)
   }
 derive instance newtypeDescribeWorkspacesConnectionStatusResult :: Newtype DescribeWorkspacesConnectionStatusResult _
 derive instance repGenericDescribeWorkspacesConnectionStatusResult :: Generic DescribeWorkspacesConnectionStatusResult _
@@ -443,22 +442,22 @@ instance encodeDescribeWorkspacesConnectionStatusResult :: Encode DescribeWorksp
 
 -- | Constructs DescribeWorkspacesConnectionStatusResult from required parameters
 newDescribeWorkspacesConnectionStatusResult :: DescribeWorkspacesConnectionStatusResult
-newDescribeWorkspacesConnectionStatusResult  = DescribeWorkspacesConnectionStatusResult { "NextToken": (NullOrUndefined Nothing), "WorkspacesConnectionStatus": (NullOrUndefined Nothing) }
+newDescribeWorkspacesConnectionStatusResult  = DescribeWorkspacesConnectionStatusResult { "NextToken": Nothing, "WorkspacesConnectionStatus": Nothing }
 
 -- | Constructs DescribeWorkspacesConnectionStatusResult's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newDescribeWorkspacesConnectionStatusResult' :: ( { "WorkspacesConnectionStatus" :: NullOrUndefined (WorkspaceConnectionStatusList) , "NextToken" :: NullOrUndefined (PaginationToken) } -> {"WorkspacesConnectionStatus" :: NullOrUndefined (WorkspaceConnectionStatusList) , "NextToken" :: NullOrUndefined (PaginationToken) } ) -> DescribeWorkspacesConnectionStatusResult
-newDescribeWorkspacesConnectionStatusResult'  customize = (DescribeWorkspacesConnectionStatusResult <<< customize) { "NextToken": (NullOrUndefined Nothing), "WorkspacesConnectionStatus": (NullOrUndefined Nothing) }
+newDescribeWorkspacesConnectionStatusResult' :: ( { "WorkspacesConnectionStatus" :: Maybe (WorkspaceConnectionStatusList) , "NextToken" :: Maybe (PaginationToken) } -> {"WorkspacesConnectionStatus" :: Maybe (WorkspaceConnectionStatusList) , "NextToken" :: Maybe (PaginationToken) } ) -> DescribeWorkspacesConnectionStatusResult
+newDescribeWorkspacesConnectionStatusResult'  customize = (DescribeWorkspacesConnectionStatusResult <<< customize) { "NextToken": Nothing, "WorkspacesConnectionStatus": Nothing }
 
 
 
 newtype DescribeWorkspacesRequest = DescribeWorkspacesRequest 
-  { "WorkspaceIds" :: NullOrUndefined (WorkspaceIdList)
-  , "DirectoryId" :: NullOrUndefined (DirectoryId)
-  , "UserName" :: NullOrUndefined (UserName)
-  , "BundleId" :: NullOrUndefined (BundleId)
-  , "Limit" :: NullOrUndefined (Limit)
-  , "NextToken" :: NullOrUndefined (PaginationToken)
+  { "WorkspaceIds" :: Maybe (WorkspaceIdList)
+  , "DirectoryId" :: Maybe (DirectoryId)
+  , "UserName" :: Maybe (UserName)
+  , "BundleId" :: Maybe (BundleId)
+  , "Limit" :: Maybe (Limit)
+  , "NextToken" :: Maybe (PaginationToken)
   }
 derive instance newtypeDescribeWorkspacesRequest :: Newtype DescribeWorkspacesRequest _
 derive instance repGenericDescribeWorkspacesRequest :: Generic DescribeWorkspacesRequest _
@@ -468,18 +467,18 @@ instance encodeDescribeWorkspacesRequest :: Encode DescribeWorkspacesRequest whe
 
 -- | Constructs DescribeWorkspacesRequest from required parameters
 newDescribeWorkspacesRequest :: DescribeWorkspacesRequest
-newDescribeWorkspacesRequest  = DescribeWorkspacesRequest { "BundleId": (NullOrUndefined Nothing), "DirectoryId": (NullOrUndefined Nothing), "Limit": (NullOrUndefined Nothing), "NextToken": (NullOrUndefined Nothing), "UserName": (NullOrUndefined Nothing), "WorkspaceIds": (NullOrUndefined Nothing) }
+newDescribeWorkspacesRequest  = DescribeWorkspacesRequest { "BundleId": Nothing, "DirectoryId": Nothing, "Limit": Nothing, "NextToken": Nothing, "UserName": Nothing, "WorkspaceIds": Nothing }
 
 -- | Constructs DescribeWorkspacesRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newDescribeWorkspacesRequest' :: ( { "WorkspaceIds" :: NullOrUndefined (WorkspaceIdList) , "DirectoryId" :: NullOrUndefined (DirectoryId) , "UserName" :: NullOrUndefined (UserName) , "BundleId" :: NullOrUndefined (BundleId) , "Limit" :: NullOrUndefined (Limit) , "NextToken" :: NullOrUndefined (PaginationToken) } -> {"WorkspaceIds" :: NullOrUndefined (WorkspaceIdList) , "DirectoryId" :: NullOrUndefined (DirectoryId) , "UserName" :: NullOrUndefined (UserName) , "BundleId" :: NullOrUndefined (BundleId) , "Limit" :: NullOrUndefined (Limit) , "NextToken" :: NullOrUndefined (PaginationToken) } ) -> DescribeWorkspacesRequest
-newDescribeWorkspacesRequest'  customize = (DescribeWorkspacesRequest <<< customize) { "BundleId": (NullOrUndefined Nothing), "DirectoryId": (NullOrUndefined Nothing), "Limit": (NullOrUndefined Nothing), "NextToken": (NullOrUndefined Nothing), "UserName": (NullOrUndefined Nothing), "WorkspaceIds": (NullOrUndefined Nothing) }
+newDescribeWorkspacesRequest' :: ( { "WorkspaceIds" :: Maybe (WorkspaceIdList) , "DirectoryId" :: Maybe (DirectoryId) , "UserName" :: Maybe (UserName) , "BundleId" :: Maybe (BundleId) , "Limit" :: Maybe (Limit) , "NextToken" :: Maybe (PaginationToken) } -> {"WorkspaceIds" :: Maybe (WorkspaceIdList) , "DirectoryId" :: Maybe (DirectoryId) , "UserName" :: Maybe (UserName) , "BundleId" :: Maybe (BundleId) , "Limit" :: Maybe (Limit) , "NextToken" :: Maybe (PaginationToken) } ) -> DescribeWorkspacesRequest
+newDescribeWorkspacesRequest'  customize = (DescribeWorkspacesRequest <<< customize) { "BundleId": Nothing, "DirectoryId": Nothing, "Limit": Nothing, "NextToken": Nothing, "UserName": Nothing, "WorkspaceIds": Nothing }
 
 
 
 newtype DescribeWorkspacesResult = DescribeWorkspacesResult 
-  { "Workspaces" :: NullOrUndefined (WorkspaceList)
-  , "NextToken" :: NullOrUndefined (PaginationToken)
+  { "Workspaces" :: Maybe (WorkspaceList)
+  , "NextToken" :: Maybe (PaginationToken)
   }
 derive instance newtypeDescribeWorkspacesResult :: Newtype DescribeWorkspacesResult _
 derive instance repGenericDescribeWorkspacesResult :: Generic DescribeWorkspacesResult _
@@ -489,12 +488,12 @@ instance encodeDescribeWorkspacesResult :: Encode DescribeWorkspacesResult where
 
 -- | Constructs DescribeWorkspacesResult from required parameters
 newDescribeWorkspacesResult :: DescribeWorkspacesResult
-newDescribeWorkspacesResult  = DescribeWorkspacesResult { "NextToken": (NullOrUndefined Nothing), "Workspaces": (NullOrUndefined Nothing) }
+newDescribeWorkspacesResult  = DescribeWorkspacesResult { "NextToken": Nothing, "Workspaces": Nothing }
 
 -- | Constructs DescribeWorkspacesResult's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newDescribeWorkspacesResult' :: ( { "Workspaces" :: NullOrUndefined (WorkspaceList) , "NextToken" :: NullOrUndefined (PaginationToken) } -> {"Workspaces" :: NullOrUndefined (WorkspaceList) , "NextToken" :: NullOrUndefined (PaginationToken) } ) -> DescribeWorkspacesResult
-newDescribeWorkspacesResult'  customize = (DescribeWorkspacesResult <<< customize) { "NextToken": (NullOrUndefined Nothing), "Workspaces": (NullOrUndefined Nothing) }
+newDescribeWorkspacesResult' :: ( { "Workspaces" :: Maybe (WorkspaceList) , "NextToken" :: Maybe (PaginationToken) } -> {"Workspaces" :: Maybe (WorkspaceList) , "NextToken" :: Maybe (PaginationToken) } ) -> DescribeWorkspacesResult
+newDescribeWorkspacesResult'  customize = (DescribeWorkspacesResult <<< customize) { "NextToken": Nothing, "Workspaces": Nothing }
 
 
 
@@ -572,9 +571,9 @@ instance encodeExceptionMessage :: Encode ExceptionMessage where encode = generi
 
 -- | <p>Information about a WorkSpace that could not be created.</p>
 newtype FailedCreateWorkspaceRequest = FailedCreateWorkspaceRequest 
-  { "WorkspaceRequest" :: NullOrUndefined (WorkspaceRequest)
-  , "ErrorCode" :: NullOrUndefined (ErrorType)
-  , "ErrorMessage" :: NullOrUndefined (Description)
+  { "WorkspaceRequest" :: Maybe (WorkspaceRequest)
+  , "ErrorCode" :: Maybe (ErrorType)
+  , "ErrorMessage" :: Maybe (Description)
   }
 derive instance newtypeFailedCreateWorkspaceRequest :: Newtype FailedCreateWorkspaceRequest _
 derive instance repGenericFailedCreateWorkspaceRequest :: Generic FailedCreateWorkspaceRequest _
@@ -584,12 +583,12 @@ instance encodeFailedCreateWorkspaceRequest :: Encode FailedCreateWorkspaceReque
 
 -- | Constructs FailedCreateWorkspaceRequest from required parameters
 newFailedCreateWorkspaceRequest :: FailedCreateWorkspaceRequest
-newFailedCreateWorkspaceRequest  = FailedCreateWorkspaceRequest { "ErrorCode": (NullOrUndefined Nothing), "ErrorMessage": (NullOrUndefined Nothing), "WorkspaceRequest": (NullOrUndefined Nothing) }
+newFailedCreateWorkspaceRequest  = FailedCreateWorkspaceRequest { "ErrorCode": Nothing, "ErrorMessage": Nothing, "WorkspaceRequest": Nothing }
 
 -- | Constructs FailedCreateWorkspaceRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newFailedCreateWorkspaceRequest' :: ( { "WorkspaceRequest" :: NullOrUndefined (WorkspaceRequest) , "ErrorCode" :: NullOrUndefined (ErrorType) , "ErrorMessage" :: NullOrUndefined (Description) } -> {"WorkspaceRequest" :: NullOrUndefined (WorkspaceRequest) , "ErrorCode" :: NullOrUndefined (ErrorType) , "ErrorMessage" :: NullOrUndefined (Description) } ) -> FailedCreateWorkspaceRequest
-newFailedCreateWorkspaceRequest'  customize = (FailedCreateWorkspaceRequest <<< customize) { "ErrorCode": (NullOrUndefined Nothing), "ErrorMessage": (NullOrUndefined Nothing), "WorkspaceRequest": (NullOrUndefined Nothing) }
+newFailedCreateWorkspaceRequest' :: ( { "WorkspaceRequest" :: Maybe (WorkspaceRequest) , "ErrorCode" :: Maybe (ErrorType) , "ErrorMessage" :: Maybe (Description) } -> {"WorkspaceRequest" :: Maybe (WorkspaceRequest) , "ErrorCode" :: Maybe (ErrorType) , "ErrorMessage" :: Maybe (Description) } ) -> FailedCreateWorkspaceRequest
+newFailedCreateWorkspaceRequest'  customize = (FailedCreateWorkspaceRequest <<< customize) { "ErrorCode": Nothing, "ErrorMessage": Nothing, "WorkspaceRequest": Nothing }
 
 
 
@@ -649,9 +648,9 @@ instance encodeFailedTerminateWorkspaceRequests :: Encode FailedTerminateWorkspa
 
 -- | <p>Information about a WorkSpace that could not be rebooted (<a>RebootWorkspaces</a>), rebuilt (<a>RebuildWorkspaces</a>), terminated (<a>TerminateWorkspaces</a>), started (<a>StartWorkspaces</a>), or stopped (<a>StopWorkspaces</a>).</p>
 newtype FailedWorkspaceChangeRequest = FailedWorkspaceChangeRequest 
-  { "WorkspaceId" :: NullOrUndefined (WorkspaceId)
-  , "ErrorCode" :: NullOrUndefined (ErrorType)
-  , "ErrorMessage" :: NullOrUndefined (Description)
+  { "WorkspaceId" :: Maybe (WorkspaceId)
+  , "ErrorCode" :: Maybe (ErrorType)
+  , "ErrorMessage" :: Maybe (Description)
   }
 derive instance newtypeFailedWorkspaceChangeRequest :: Newtype FailedWorkspaceChangeRequest _
 derive instance repGenericFailedWorkspaceChangeRequest :: Generic FailedWorkspaceChangeRequest _
@@ -661,18 +660,18 @@ instance encodeFailedWorkspaceChangeRequest :: Encode FailedWorkspaceChangeReque
 
 -- | Constructs FailedWorkspaceChangeRequest from required parameters
 newFailedWorkspaceChangeRequest :: FailedWorkspaceChangeRequest
-newFailedWorkspaceChangeRequest  = FailedWorkspaceChangeRequest { "ErrorCode": (NullOrUndefined Nothing), "ErrorMessage": (NullOrUndefined Nothing), "WorkspaceId": (NullOrUndefined Nothing) }
+newFailedWorkspaceChangeRequest  = FailedWorkspaceChangeRequest { "ErrorCode": Nothing, "ErrorMessage": Nothing, "WorkspaceId": Nothing }
 
 -- | Constructs FailedWorkspaceChangeRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newFailedWorkspaceChangeRequest' :: ( { "WorkspaceId" :: NullOrUndefined (WorkspaceId) , "ErrorCode" :: NullOrUndefined (ErrorType) , "ErrorMessage" :: NullOrUndefined (Description) } -> {"WorkspaceId" :: NullOrUndefined (WorkspaceId) , "ErrorCode" :: NullOrUndefined (ErrorType) , "ErrorMessage" :: NullOrUndefined (Description) } ) -> FailedWorkspaceChangeRequest
-newFailedWorkspaceChangeRequest'  customize = (FailedWorkspaceChangeRequest <<< customize) { "ErrorCode": (NullOrUndefined Nothing), "ErrorMessage": (NullOrUndefined Nothing), "WorkspaceId": (NullOrUndefined Nothing) }
+newFailedWorkspaceChangeRequest' :: ( { "WorkspaceId" :: Maybe (WorkspaceId) , "ErrorCode" :: Maybe (ErrorType) , "ErrorMessage" :: Maybe (Description) } -> {"WorkspaceId" :: Maybe (WorkspaceId) , "ErrorCode" :: Maybe (ErrorType) , "ErrorMessage" :: Maybe (Description) } ) -> FailedWorkspaceChangeRequest
+newFailedWorkspaceChangeRequest'  customize = (FailedWorkspaceChangeRequest <<< customize) { "ErrorCode": Nothing, "ErrorMessage": Nothing, "WorkspaceId": Nothing }
 
 
 
 -- | <p>One or more parameter values are not valid.</p>
 newtype InvalidParameterValuesException = InvalidParameterValuesException 
-  { "message" :: NullOrUndefined (ExceptionMessage)
+  { "message" :: Maybe (ExceptionMessage)
   }
 derive instance newtypeInvalidParameterValuesException :: Newtype InvalidParameterValuesException _
 derive instance repGenericInvalidParameterValuesException :: Generic InvalidParameterValuesException _
@@ -682,18 +681,18 @@ instance encodeInvalidParameterValuesException :: Encode InvalidParameterValuesE
 
 -- | Constructs InvalidParameterValuesException from required parameters
 newInvalidParameterValuesException :: InvalidParameterValuesException
-newInvalidParameterValuesException  = InvalidParameterValuesException { "message": (NullOrUndefined Nothing) }
+newInvalidParameterValuesException  = InvalidParameterValuesException { "message": Nothing }
 
 -- | Constructs InvalidParameterValuesException's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newInvalidParameterValuesException' :: ( { "message" :: NullOrUndefined (ExceptionMessage) } -> {"message" :: NullOrUndefined (ExceptionMessage) } ) -> InvalidParameterValuesException
-newInvalidParameterValuesException'  customize = (InvalidParameterValuesException <<< customize) { "message": (NullOrUndefined Nothing) }
+newInvalidParameterValuesException' :: ( { "message" :: Maybe (ExceptionMessage) } -> {"message" :: Maybe (ExceptionMessage) } ) -> InvalidParameterValuesException
+newInvalidParameterValuesException'  customize = (InvalidParameterValuesException <<< customize) { "message": Nothing }
 
 
 
 -- | <p>The state of the WorkSpace is not valid for this operation.</p>
 newtype InvalidResourceStateException = InvalidResourceStateException 
-  { "message" :: NullOrUndefined (ExceptionMessage)
+  { "message" :: Maybe (ExceptionMessage)
   }
 derive instance newtypeInvalidResourceStateException :: Newtype InvalidResourceStateException _
 derive instance repGenericInvalidResourceStateException :: Generic InvalidResourceStateException _
@@ -703,12 +702,12 @@ instance encodeInvalidResourceStateException :: Encode InvalidResourceStateExcep
 
 -- | Constructs InvalidResourceStateException from required parameters
 newInvalidResourceStateException :: InvalidResourceStateException
-newInvalidResourceStateException  = InvalidResourceStateException { "message": (NullOrUndefined Nothing) }
+newInvalidResourceStateException  = InvalidResourceStateException { "message": Nothing }
 
 -- | Constructs InvalidResourceStateException's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newInvalidResourceStateException' :: ( { "message" :: NullOrUndefined (ExceptionMessage) } -> {"message" :: NullOrUndefined (ExceptionMessage) } ) -> InvalidResourceStateException
-newInvalidResourceStateException'  customize = (InvalidResourceStateException <<< customize) { "message": (NullOrUndefined Nothing) }
+newInvalidResourceStateException' :: ( { "message" :: Maybe (ExceptionMessage) } -> {"message" :: Maybe (ExceptionMessage) } ) -> InvalidResourceStateException
+newInvalidResourceStateException'  customize = (InvalidResourceStateException <<< customize) { "message": Nothing }
 
 
 
@@ -741,8 +740,8 @@ instance encodeModificationResourceEnum :: Encode ModificationResourceEnum where
 
 -- | <p>Information about a WorkSpace modification.</p>
 newtype ModificationState = ModificationState 
-  { "Resource" :: NullOrUndefined (ModificationResourceEnum)
-  , "State" :: NullOrUndefined (ModificationStateEnum)
+  { "Resource" :: Maybe (ModificationResourceEnum)
+  , "State" :: Maybe (ModificationStateEnum)
   }
 derive instance newtypeModificationState :: Newtype ModificationState _
 derive instance repGenericModificationState :: Generic ModificationState _
@@ -752,12 +751,12 @@ instance encodeModificationState :: Encode ModificationState where encode = gene
 
 -- | Constructs ModificationState from required parameters
 newModificationState :: ModificationState
-newModificationState  = ModificationState { "Resource": (NullOrUndefined Nothing), "State": (NullOrUndefined Nothing) }
+newModificationState  = ModificationState { "Resource": Nothing, "State": Nothing }
 
 -- | Constructs ModificationState's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newModificationState' :: ( { "Resource" :: NullOrUndefined (ModificationResourceEnum) , "State" :: NullOrUndefined (ModificationStateEnum) } -> {"Resource" :: NullOrUndefined (ModificationResourceEnum) , "State" :: NullOrUndefined (ModificationStateEnum) } ) -> ModificationState
-newModificationState'  customize = (ModificationState <<< customize) { "Resource": (NullOrUndefined Nothing), "State": (NullOrUndefined Nothing) }
+newModificationState' :: ( { "Resource" :: Maybe (ModificationResourceEnum) , "State" :: Maybe (ModificationStateEnum) } -> {"Resource" :: Maybe (ModificationResourceEnum) , "State" :: Maybe (ModificationStateEnum) } ) -> ModificationState
+newModificationState'  customize = (ModificationState <<< customize) { "Resource": Nothing, "State": Nothing }
 
 
 
@@ -820,7 +819,7 @@ instance encodeNonEmptyString :: Encode NonEmptyString where encode = genericEnc
 
 -- | <p>The properties of this WorkSpace are currently being modified. Try again in a moment.</p>
 newtype OperationInProgressException = OperationInProgressException 
-  { "message" :: NullOrUndefined (ExceptionMessage)
+  { "message" :: Maybe (ExceptionMessage)
   }
 derive instance newtypeOperationInProgressException :: Newtype OperationInProgressException _
 derive instance repGenericOperationInProgressException :: Generic OperationInProgressException _
@@ -830,12 +829,12 @@ instance encodeOperationInProgressException :: Encode OperationInProgressExcepti
 
 -- | Constructs OperationInProgressException from required parameters
 newOperationInProgressException :: OperationInProgressException
-newOperationInProgressException  = OperationInProgressException { "message": (NullOrUndefined Nothing) }
+newOperationInProgressException  = OperationInProgressException { "message": Nothing }
 
 -- | Constructs OperationInProgressException's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newOperationInProgressException' :: ( { "message" :: NullOrUndefined (ExceptionMessage) } -> {"message" :: NullOrUndefined (ExceptionMessage) } ) -> OperationInProgressException
-newOperationInProgressException'  customize = (OperationInProgressException <<< customize) { "message": (NullOrUndefined Nothing) }
+newOperationInProgressException' :: ( { "message" :: Maybe (ExceptionMessage) } -> {"message" :: Maybe (ExceptionMessage) } ) -> OperationInProgressException
+newOperationInProgressException'  customize = (OperationInProgressException <<< customize) { "message": Nothing }
 
 
 
@@ -899,7 +898,7 @@ newRebootWorkspacesRequest' _RebootWorkspaceRequests customize = (RebootWorkspac
 
 
 newtype RebootWorkspacesResult = RebootWorkspacesResult 
-  { "FailedRequests" :: NullOrUndefined (FailedRebootWorkspaceRequests)
+  { "FailedRequests" :: Maybe (FailedRebootWorkspaceRequests)
   }
 derive instance newtypeRebootWorkspacesResult :: Newtype RebootWorkspacesResult _
 derive instance repGenericRebootWorkspacesResult :: Generic RebootWorkspacesResult _
@@ -909,12 +908,12 @@ instance encodeRebootWorkspacesResult :: Encode RebootWorkspacesResult where enc
 
 -- | Constructs RebootWorkspacesResult from required parameters
 newRebootWorkspacesResult :: RebootWorkspacesResult
-newRebootWorkspacesResult  = RebootWorkspacesResult { "FailedRequests": (NullOrUndefined Nothing) }
+newRebootWorkspacesResult  = RebootWorkspacesResult { "FailedRequests": Nothing }
 
 -- | Constructs RebootWorkspacesResult's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newRebootWorkspacesResult' :: ( { "FailedRequests" :: NullOrUndefined (FailedRebootWorkspaceRequests) } -> {"FailedRequests" :: NullOrUndefined (FailedRebootWorkspaceRequests) } ) -> RebootWorkspacesResult
-newRebootWorkspacesResult'  customize = (RebootWorkspacesResult <<< customize) { "FailedRequests": (NullOrUndefined Nothing) }
+newRebootWorkspacesResult' :: ( { "FailedRequests" :: Maybe (FailedRebootWorkspaceRequests) } -> {"FailedRequests" :: Maybe (FailedRebootWorkspaceRequests) } ) -> RebootWorkspacesResult
+newRebootWorkspacesResult'  customize = (RebootWorkspacesResult <<< customize) { "FailedRequests": Nothing }
 
 
 
@@ -969,7 +968,7 @@ newRebuildWorkspacesRequest' _RebuildWorkspaceRequests customize = (RebuildWorks
 
 
 newtype RebuildWorkspacesResult = RebuildWorkspacesResult 
-  { "FailedRequests" :: NullOrUndefined (FailedRebuildWorkspaceRequests)
+  { "FailedRequests" :: Maybe (FailedRebuildWorkspaceRequests)
   }
 derive instance newtypeRebuildWorkspacesResult :: Newtype RebuildWorkspacesResult _
 derive instance repGenericRebuildWorkspacesResult :: Generic RebuildWorkspacesResult _
@@ -979,12 +978,12 @@ instance encodeRebuildWorkspacesResult :: Encode RebuildWorkspacesResult where e
 
 -- | Constructs RebuildWorkspacesResult from required parameters
 newRebuildWorkspacesResult :: RebuildWorkspacesResult
-newRebuildWorkspacesResult  = RebuildWorkspacesResult { "FailedRequests": (NullOrUndefined Nothing) }
+newRebuildWorkspacesResult  = RebuildWorkspacesResult { "FailedRequests": Nothing }
 
 -- | Constructs RebuildWorkspacesResult's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newRebuildWorkspacesResult' :: ( { "FailedRequests" :: NullOrUndefined (FailedRebuildWorkspaceRequests) } -> {"FailedRequests" :: NullOrUndefined (FailedRebuildWorkspaceRequests) } ) -> RebuildWorkspacesResult
-newRebuildWorkspacesResult'  customize = (RebuildWorkspacesResult <<< customize) { "FailedRequests": (NullOrUndefined Nothing) }
+newRebuildWorkspacesResult' :: ( { "FailedRequests" :: Maybe (FailedRebuildWorkspaceRequests) } -> {"FailedRequests" :: Maybe (FailedRebuildWorkspaceRequests) } ) -> RebuildWorkspacesResult
+newRebuildWorkspacesResult'  customize = (RebuildWorkspacesResult <<< customize) { "FailedRequests": Nothing }
 
 
 
@@ -999,7 +998,7 @@ instance encodeRegistrationCode :: Encode RegistrationCode where encode = generi
 
 -- | <p>Your resource limits have been exceeded.</p>
 newtype ResourceLimitExceededException = ResourceLimitExceededException 
-  { "message" :: NullOrUndefined (ExceptionMessage)
+  { "message" :: Maybe (ExceptionMessage)
   }
 derive instance newtypeResourceLimitExceededException :: Newtype ResourceLimitExceededException _
 derive instance repGenericResourceLimitExceededException :: Generic ResourceLimitExceededException _
@@ -1009,19 +1008,19 @@ instance encodeResourceLimitExceededException :: Encode ResourceLimitExceededExc
 
 -- | Constructs ResourceLimitExceededException from required parameters
 newResourceLimitExceededException :: ResourceLimitExceededException
-newResourceLimitExceededException  = ResourceLimitExceededException { "message": (NullOrUndefined Nothing) }
+newResourceLimitExceededException  = ResourceLimitExceededException { "message": Nothing }
 
 -- | Constructs ResourceLimitExceededException's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newResourceLimitExceededException' :: ( { "message" :: NullOrUndefined (ExceptionMessage) } -> {"message" :: NullOrUndefined (ExceptionMessage) } ) -> ResourceLimitExceededException
-newResourceLimitExceededException'  customize = (ResourceLimitExceededException <<< customize) { "message": (NullOrUndefined Nothing) }
+newResourceLimitExceededException' :: ( { "message" :: Maybe (ExceptionMessage) } -> {"message" :: Maybe (ExceptionMessage) } ) -> ResourceLimitExceededException
+newResourceLimitExceededException'  customize = (ResourceLimitExceededException <<< customize) { "message": Nothing }
 
 
 
 -- | <p>The resource could not be found.</p>
 newtype ResourceNotFoundException = ResourceNotFoundException 
-  { "message" :: NullOrUndefined (ExceptionMessage)
-  , "ResourceId" :: NullOrUndefined (NonEmptyString)
+  { "message" :: Maybe (ExceptionMessage)
+  , "ResourceId" :: Maybe (NonEmptyString)
   }
 derive instance newtypeResourceNotFoundException :: Newtype ResourceNotFoundException _
 derive instance repGenericResourceNotFoundException :: Generic ResourceNotFoundException _
@@ -1031,19 +1030,19 @@ instance encodeResourceNotFoundException :: Encode ResourceNotFoundException whe
 
 -- | Constructs ResourceNotFoundException from required parameters
 newResourceNotFoundException :: ResourceNotFoundException
-newResourceNotFoundException  = ResourceNotFoundException { "ResourceId": (NullOrUndefined Nothing), "message": (NullOrUndefined Nothing) }
+newResourceNotFoundException  = ResourceNotFoundException { "ResourceId": Nothing, "message": Nothing }
 
 -- | Constructs ResourceNotFoundException's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newResourceNotFoundException' :: ( { "message" :: NullOrUndefined (ExceptionMessage) , "ResourceId" :: NullOrUndefined (NonEmptyString) } -> {"message" :: NullOrUndefined (ExceptionMessage) , "ResourceId" :: NullOrUndefined (NonEmptyString) } ) -> ResourceNotFoundException
-newResourceNotFoundException'  customize = (ResourceNotFoundException <<< customize) { "ResourceId": (NullOrUndefined Nothing), "message": (NullOrUndefined Nothing) }
+newResourceNotFoundException' :: ( { "message" :: Maybe (ExceptionMessage) , "ResourceId" :: Maybe (NonEmptyString) } -> {"message" :: Maybe (ExceptionMessage) , "ResourceId" :: Maybe (NonEmptyString) } ) -> ResourceNotFoundException
+newResourceNotFoundException'  customize = (ResourceNotFoundException <<< customize) { "ResourceId": Nothing, "message": Nothing }
 
 
 
 -- | <p>The specified resource is not available.</p>
 newtype ResourceUnavailableException = ResourceUnavailableException 
-  { "message" :: NullOrUndefined (ExceptionMessage)
-  , "ResourceId" :: NullOrUndefined (NonEmptyString)
+  { "message" :: Maybe (ExceptionMessage)
+  , "ResourceId" :: Maybe (NonEmptyString)
   }
 derive instance newtypeResourceUnavailableException :: Newtype ResourceUnavailableException _
 derive instance repGenericResourceUnavailableException :: Generic ResourceUnavailableException _
@@ -1053,18 +1052,18 @@ instance encodeResourceUnavailableException :: Encode ResourceUnavailableExcepti
 
 -- | Constructs ResourceUnavailableException from required parameters
 newResourceUnavailableException :: ResourceUnavailableException
-newResourceUnavailableException  = ResourceUnavailableException { "ResourceId": (NullOrUndefined Nothing), "message": (NullOrUndefined Nothing) }
+newResourceUnavailableException  = ResourceUnavailableException { "ResourceId": Nothing, "message": Nothing }
 
 -- | Constructs ResourceUnavailableException's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newResourceUnavailableException' :: ( { "message" :: NullOrUndefined (ExceptionMessage) , "ResourceId" :: NullOrUndefined (NonEmptyString) } -> {"message" :: NullOrUndefined (ExceptionMessage) , "ResourceId" :: NullOrUndefined (NonEmptyString) } ) -> ResourceUnavailableException
-newResourceUnavailableException'  customize = (ResourceUnavailableException <<< customize) { "ResourceId": (NullOrUndefined Nothing), "message": (NullOrUndefined Nothing) }
+newResourceUnavailableException' :: ( { "message" :: Maybe (ExceptionMessage) , "ResourceId" :: Maybe (NonEmptyString) } -> {"message" :: Maybe (ExceptionMessage) , "ResourceId" :: Maybe (NonEmptyString) } ) -> ResourceUnavailableException
+newResourceUnavailableException'  customize = (ResourceUnavailableException <<< customize) { "ResourceId": Nothing, "message": Nothing }
 
 
 
 -- | <p>Information about the root volume for a WorkSpace bundle.</p>
 newtype RootStorage = RootStorage 
-  { "Capacity" :: NullOrUndefined (NonEmptyString)
+  { "Capacity" :: Maybe (NonEmptyString)
   }
 derive instance newtypeRootStorage :: Newtype RootStorage _
 derive instance repGenericRootStorage :: Generic RootStorage _
@@ -1074,12 +1073,12 @@ instance encodeRootStorage :: Encode RootStorage where encode = genericEncode op
 
 -- | Constructs RootStorage from required parameters
 newRootStorage :: RootStorage
-newRootStorage  = RootStorage { "Capacity": (NullOrUndefined Nothing) }
+newRootStorage  = RootStorage { "Capacity": Nothing }
 
 -- | Constructs RootStorage's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newRootStorage' :: ( { "Capacity" :: NullOrUndefined (NonEmptyString) } -> {"Capacity" :: NullOrUndefined (NonEmptyString) } ) -> RootStorage
-newRootStorage'  customize = (RootStorage <<< customize) { "Capacity": (NullOrUndefined Nothing) }
+newRootStorage' :: ( { "Capacity" :: Maybe (NonEmptyString) } -> {"Capacity" :: Maybe (NonEmptyString) } ) -> RootStorage
+newRootStorage'  customize = (RootStorage <<< customize) { "Capacity": Nothing }
 
 
 
@@ -1121,7 +1120,7 @@ instance encodeSecurityGroupId :: Encode SecurityGroupId where encode = genericE
 
 -- | <p>Information used to start a WorkSpace.</p>
 newtype StartRequest = StartRequest 
-  { "WorkspaceId" :: NullOrUndefined (WorkspaceId)
+  { "WorkspaceId" :: Maybe (WorkspaceId)
   }
 derive instance newtypeStartRequest :: Newtype StartRequest _
 derive instance repGenericStartRequest :: Generic StartRequest _
@@ -1131,12 +1130,12 @@ instance encodeStartRequest :: Encode StartRequest where encode = genericEncode 
 
 -- | Constructs StartRequest from required parameters
 newStartRequest :: StartRequest
-newStartRequest  = StartRequest { "WorkspaceId": (NullOrUndefined Nothing) }
+newStartRequest  = StartRequest { "WorkspaceId": Nothing }
 
 -- | Constructs StartRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newStartRequest' :: ( { "WorkspaceId" :: NullOrUndefined (WorkspaceId) } -> {"WorkspaceId" :: NullOrUndefined (WorkspaceId) } ) -> StartRequest
-newStartRequest'  customize = (StartRequest <<< customize) { "WorkspaceId": (NullOrUndefined Nothing) }
+newStartRequest' :: ( { "WorkspaceId" :: Maybe (WorkspaceId) } -> {"WorkspaceId" :: Maybe (WorkspaceId) } ) -> StartRequest
+newStartRequest'  customize = (StartRequest <<< customize) { "WorkspaceId": Nothing }
 
 
 
@@ -1170,7 +1169,7 @@ newStartWorkspacesRequest' _StartWorkspaceRequests customize = (StartWorkspacesR
 
 
 newtype StartWorkspacesResult = StartWorkspacesResult 
-  { "FailedRequests" :: NullOrUndefined (FailedStartWorkspaceRequests)
+  { "FailedRequests" :: Maybe (FailedStartWorkspaceRequests)
   }
 derive instance newtypeStartWorkspacesResult :: Newtype StartWorkspacesResult _
 derive instance repGenericStartWorkspacesResult :: Generic StartWorkspacesResult _
@@ -1180,18 +1179,18 @@ instance encodeStartWorkspacesResult :: Encode StartWorkspacesResult where encod
 
 -- | Constructs StartWorkspacesResult from required parameters
 newStartWorkspacesResult :: StartWorkspacesResult
-newStartWorkspacesResult  = StartWorkspacesResult { "FailedRequests": (NullOrUndefined Nothing) }
+newStartWorkspacesResult  = StartWorkspacesResult { "FailedRequests": Nothing }
 
 -- | Constructs StartWorkspacesResult's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newStartWorkspacesResult' :: ( { "FailedRequests" :: NullOrUndefined (FailedStartWorkspaceRequests) } -> {"FailedRequests" :: NullOrUndefined (FailedStartWorkspaceRequests) } ) -> StartWorkspacesResult
-newStartWorkspacesResult'  customize = (StartWorkspacesResult <<< customize) { "FailedRequests": (NullOrUndefined Nothing) }
+newStartWorkspacesResult' :: ( { "FailedRequests" :: Maybe (FailedStartWorkspaceRequests) } -> {"FailedRequests" :: Maybe (FailedStartWorkspaceRequests) } ) -> StartWorkspacesResult
+newStartWorkspacesResult'  customize = (StartWorkspacesResult <<< customize) { "FailedRequests": Nothing }
 
 
 
 -- | <p>Information used to stop a WorkSpace.</p>
 newtype StopRequest = StopRequest 
-  { "WorkspaceId" :: NullOrUndefined (WorkspaceId)
+  { "WorkspaceId" :: Maybe (WorkspaceId)
   }
 derive instance newtypeStopRequest :: Newtype StopRequest _
 derive instance repGenericStopRequest :: Generic StopRequest _
@@ -1201,12 +1200,12 @@ instance encodeStopRequest :: Encode StopRequest where encode = genericEncode op
 
 -- | Constructs StopRequest from required parameters
 newStopRequest :: StopRequest
-newStopRequest  = StopRequest { "WorkspaceId": (NullOrUndefined Nothing) }
+newStopRequest  = StopRequest { "WorkspaceId": Nothing }
 
 -- | Constructs StopRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newStopRequest' :: ( { "WorkspaceId" :: NullOrUndefined (WorkspaceId) } -> {"WorkspaceId" :: NullOrUndefined (WorkspaceId) } ) -> StopRequest
-newStopRequest'  customize = (StopRequest <<< customize) { "WorkspaceId": (NullOrUndefined Nothing) }
+newStopRequest' :: ( { "WorkspaceId" :: Maybe (WorkspaceId) } -> {"WorkspaceId" :: Maybe (WorkspaceId) } ) -> StopRequest
+newStopRequest'  customize = (StopRequest <<< customize) { "WorkspaceId": Nothing }
 
 
 
@@ -1240,7 +1239,7 @@ newStopWorkspacesRequest' _StopWorkspaceRequests customize = (StopWorkspacesRequ
 
 
 newtype StopWorkspacesResult = StopWorkspacesResult 
-  { "FailedRequests" :: NullOrUndefined (FailedStopWorkspaceRequests)
+  { "FailedRequests" :: Maybe (FailedStopWorkspaceRequests)
   }
 derive instance newtypeStopWorkspacesResult :: Newtype StopWorkspacesResult _
 derive instance repGenericStopWorkspacesResult :: Generic StopWorkspacesResult _
@@ -1250,12 +1249,12 @@ instance encodeStopWorkspacesResult :: Encode StopWorkspacesResult where encode 
 
 -- | Constructs StopWorkspacesResult from required parameters
 newStopWorkspacesResult :: StopWorkspacesResult
-newStopWorkspacesResult  = StopWorkspacesResult { "FailedRequests": (NullOrUndefined Nothing) }
+newStopWorkspacesResult  = StopWorkspacesResult { "FailedRequests": Nothing }
 
 -- | Constructs StopWorkspacesResult's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newStopWorkspacesResult' :: ( { "FailedRequests" :: NullOrUndefined (FailedStopWorkspaceRequests) } -> {"FailedRequests" :: NullOrUndefined (FailedStopWorkspaceRequests) } ) -> StopWorkspacesResult
-newStopWorkspacesResult'  customize = (StopWorkspacesResult <<< customize) { "FailedRequests": (NullOrUndefined Nothing) }
+newStopWorkspacesResult' :: ( { "FailedRequests" :: Maybe (FailedStopWorkspaceRequests) } -> {"FailedRequests" :: Maybe (FailedStopWorkspaceRequests) } ) -> StopWorkspacesResult
+newStopWorkspacesResult'  customize = (StopWorkspacesResult <<< customize) { "FailedRequests": Nothing }
 
 
 
@@ -1280,7 +1279,7 @@ instance encodeSubnetIds :: Encode SubnetIds where encode = genericEncode option
 -- | <p>Information about a tag.</p>
 newtype Tag = Tag 
   { "Key" :: (TagKey)
-  , "Value" :: NullOrUndefined (TagValue)
+  , "Value" :: Maybe (TagValue)
   }
 derive instance newtypeTag :: Newtype Tag _
 derive instance repGenericTag :: Generic Tag _
@@ -1290,12 +1289,12 @@ instance encodeTag :: Encode Tag where encode = genericEncode options
 
 -- | Constructs Tag from required parameters
 newTag :: TagKey -> Tag
-newTag _Key = Tag { "Key": _Key, "Value": (NullOrUndefined Nothing) }
+newTag _Key = Tag { "Key": _Key, "Value": Nothing }
 
 -- | Constructs Tag's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newTag' :: TagKey -> ( { "Key" :: (TagKey) , "Value" :: NullOrUndefined (TagValue) } -> {"Key" :: (TagKey) , "Value" :: NullOrUndefined (TagValue) } ) -> Tag
-newTag' _Key customize = (Tag <<< customize) { "Key": _Key, "Value": (NullOrUndefined Nothing) }
+newTag' :: TagKey -> ( { "Key" :: (TagKey) , "Value" :: Maybe (TagValue) } -> {"Key" :: (TagKey) , "Value" :: Maybe (TagValue) } ) -> Tag
+newTag' _Key customize = (Tag <<< customize) { "Key": _Key, "Value": Nothing }
 
 
 
@@ -1386,7 +1385,7 @@ newTerminateWorkspacesRequest' _TerminateWorkspaceRequests customize = (Terminat
 
 
 newtype TerminateWorkspacesResult = TerminateWorkspacesResult 
-  { "FailedRequests" :: NullOrUndefined (FailedTerminateWorkspaceRequests)
+  { "FailedRequests" :: Maybe (FailedTerminateWorkspaceRequests)
   }
 derive instance newtypeTerminateWorkspacesResult :: Newtype TerminateWorkspacesResult _
 derive instance repGenericTerminateWorkspacesResult :: Generic TerminateWorkspacesResult _
@@ -1396,18 +1395,18 @@ instance encodeTerminateWorkspacesResult :: Encode TerminateWorkspacesResult whe
 
 -- | Constructs TerminateWorkspacesResult from required parameters
 newTerminateWorkspacesResult :: TerminateWorkspacesResult
-newTerminateWorkspacesResult  = TerminateWorkspacesResult { "FailedRequests": (NullOrUndefined Nothing) }
+newTerminateWorkspacesResult  = TerminateWorkspacesResult { "FailedRequests": Nothing }
 
 -- | Constructs TerminateWorkspacesResult's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newTerminateWorkspacesResult' :: ( { "FailedRequests" :: NullOrUndefined (FailedTerminateWorkspaceRequests) } -> {"FailedRequests" :: NullOrUndefined (FailedTerminateWorkspaceRequests) } ) -> TerminateWorkspacesResult
-newTerminateWorkspacesResult'  customize = (TerminateWorkspacesResult <<< customize) { "FailedRequests": (NullOrUndefined Nothing) }
+newTerminateWorkspacesResult' :: ( { "FailedRequests" :: Maybe (FailedTerminateWorkspaceRequests) } -> {"FailedRequests" :: Maybe (FailedTerminateWorkspaceRequests) } ) -> TerminateWorkspacesResult
+newTerminateWorkspacesResult'  customize = (TerminateWorkspacesResult <<< customize) { "FailedRequests": Nothing }
 
 
 
 -- | <p>The configuration of this WorkSpace is not supported for this operation. For more information, see the <a href="http://docs.aws.amazon.com/workspaces/latest/adminguide/">Amazon WorkSpaces Administration Guide</a>. </p>
 newtype UnsupportedWorkspaceConfigurationException = UnsupportedWorkspaceConfigurationException 
-  { "message" :: NullOrUndefined (ExceptionMessage)
+  { "message" :: Maybe (ExceptionMessage)
   }
 derive instance newtypeUnsupportedWorkspaceConfigurationException :: Newtype UnsupportedWorkspaceConfigurationException _
 derive instance repGenericUnsupportedWorkspaceConfigurationException :: Generic UnsupportedWorkspaceConfigurationException _
@@ -1417,12 +1416,12 @@ instance encodeUnsupportedWorkspaceConfigurationException :: Encode UnsupportedW
 
 -- | Constructs UnsupportedWorkspaceConfigurationException from required parameters
 newUnsupportedWorkspaceConfigurationException :: UnsupportedWorkspaceConfigurationException
-newUnsupportedWorkspaceConfigurationException  = UnsupportedWorkspaceConfigurationException { "message": (NullOrUndefined Nothing) }
+newUnsupportedWorkspaceConfigurationException  = UnsupportedWorkspaceConfigurationException { "message": Nothing }
 
 -- | Constructs UnsupportedWorkspaceConfigurationException's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newUnsupportedWorkspaceConfigurationException' :: ( { "message" :: NullOrUndefined (ExceptionMessage) } -> {"message" :: NullOrUndefined (ExceptionMessage) } ) -> UnsupportedWorkspaceConfigurationException
-newUnsupportedWorkspaceConfigurationException'  customize = (UnsupportedWorkspaceConfigurationException <<< customize) { "message": (NullOrUndefined Nothing) }
+newUnsupportedWorkspaceConfigurationException' :: ( { "message" :: Maybe (ExceptionMessage) } -> {"message" :: Maybe (ExceptionMessage) } ) -> UnsupportedWorkspaceConfigurationException
+newUnsupportedWorkspaceConfigurationException'  customize = (UnsupportedWorkspaceConfigurationException <<< customize) { "message": Nothing }
 
 
 
@@ -1437,7 +1436,7 @@ instance encodeUserName :: Encode UserName where encode = genericEncode options
 
 -- | <p>Information about the user storage for a WorkSpace bundle.</p>
 newtype UserStorage = UserStorage 
-  { "Capacity" :: NullOrUndefined (NonEmptyString)
+  { "Capacity" :: Maybe (NonEmptyString)
   }
 derive instance newtypeUserStorage :: Newtype UserStorage _
 derive instance repGenericUserStorage :: Generic UserStorage _
@@ -1447,12 +1446,12 @@ instance encodeUserStorage :: Encode UserStorage where encode = genericEncode op
 
 -- | Constructs UserStorage from required parameters
 newUserStorage :: UserStorage
-newUserStorage  = UserStorage { "Capacity": (NullOrUndefined Nothing) }
+newUserStorage  = UserStorage { "Capacity": Nothing }
 
 -- | Constructs UserStorage's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newUserStorage' :: ( { "Capacity" :: NullOrUndefined (NonEmptyString) } -> {"Capacity" :: NullOrUndefined (NonEmptyString) } ) -> UserStorage
-newUserStorage'  customize = (UserStorage <<< customize) { "Capacity": (NullOrUndefined Nothing) }
+newUserStorage' :: ( { "Capacity" :: Maybe (NonEmptyString) } -> {"Capacity" :: Maybe (NonEmptyString) } ) -> UserStorage
+newUserStorage'  customize = (UserStorage <<< customize) { "Capacity": Nothing }
 
 
 
@@ -1476,21 +1475,21 @@ instance encodeVolumeEncryptionKey :: Encode VolumeEncryptionKey where encode = 
 
 -- | <p>Information about a WorkSpace.</p>
 newtype Workspace = Workspace 
-  { "WorkspaceId" :: NullOrUndefined (WorkspaceId)
-  , "DirectoryId" :: NullOrUndefined (DirectoryId)
-  , "UserName" :: NullOrUndefined (UserName)
-  , "IpAddress" :: NullOrUndefined (IpAddress)
-  , "State" :: NullOrUndefined (WorkspaceState)
-  , "BundleId" :: NullOrUndefined (BundleId)
-  , "SubnetId" :: NullOrUndefined (SubnetId)
-  , "ErrorMessage" :: NullOrUndefined (Description)
-  , "ErrorCode" :: NullOrUndefined (WorkspaceErrorCode)
-  , "ComputerName" :: NullOrUndefined (ComputerName)
-  , "VolumeEncryptionKey" :: NullOrUndefined (VolumeEncryptionKey)
-  , "UserVolumeEncryptionEnabled" :: NullOrUndefined (BooleanObject)
-  , "RootVolumeEncryptionEnabled" :: NullOrUndefined (BooleanObject)
-  , "WorkspaceProperties" :: NullOrUndefined (WorkspaceProperties)
-  , "ModificationStates" :: NullOrUndefined (ModificationStateList)
+  { "WorkspaceId" :: Maybe (WorkspaceId)
+  , "DirectoryId" :: Maybe (DirectoryId)
+  , "UserName" :: Maybe (UserName)
+  , "IpAddress" :: Maybe (IpAddress)
+  , "State" :: Maybe (WorkspaceState)
+  , "BundleId" :: Maybe (BundleId)
+  , "SubnetId" :: Maybe (SubnetId)
+  , "ErrorMessage" :: Maybe (Description)
+  , "ErrorCode" :: Maybe (WorkspaceErrorCode)
+  , "ComputerName" :: Maybe (ComputerName)
+  , "VolumeEncryptionKey" :: Maybe (VolumeEncryptionKey)
+  , "UserVolumeEncryptionEnabled" :: Maybe (BooleanObject)
+  , "RootVolumeEncryptionEnabled" :: Maybe (BooleanObject)
+  , "WorkspaceProperties" :: Maybe (WorkspaceProperties)
+  , "ModificationStates" :: Maybe (ModificationStateList)
   }
 derive instance newtypeWorkspace :: Newtype Workspace _
 derive instance repGenericWorkspace :: Generic Workspace _
@@ -1500,24 +1499,24 @@ instance encodeWorkspace :: Encode Workspace where encode = genericEncode option
 
 -- | Constructs Workspace from required parameters
 newWorkspace :: Workspace
-newWorkspace  = Workspace { "BundleId": (NullOrUndefined Nothing), "ComputerName": (NullOrUndefined Nothing), "DirectoryId": (NullOrUndefined Nothing), "ErrorCode": (NullOrUndefined Nothing), "ErrorMessage": (NullOrUndefined Nothing), "IpAddress": (NullOrUndefined Nothing), "ModificationStates": (NullOrUndefined Nothing), "RootVolumeEncryptionEnabled": (NullOrUndefined Nothing), "State": (NullOrUndefined Nothing), "SubnetId": (NullOrUndefined Nothing), "UserName": (NullOrUndefined Nothing), "UserVolumeEncryptionEnabled": (NullOrUndefined Nothing), "VolumeEncryptionKey": (NullOrUndefined Nothing), "WorkspaceId": (NullOrUndefined Nothing), "WorkspaceProperties": (NullOrUndefined Nothing) }
+newWorkspace  = Workspace { "BundleId": Nothing, "ComputerName": Nothing, "DirectoryId": Nothing, "ErrorCode": Nothing, "ErrorMessage": Nothing, "IpAddress": Nothing, "ModificationStates": Nothing, "RootVolumeEncryptionEnabled": Nothing, "State": Nothing, "SubnetId": Nothing, "UserName": Nothing, "UserVolumeEncryptionEnabled": Nothing, "VolumeEncryptionKey": Nothing, "WorkspaceId": Nothing, "WorkspaceProperties": Nothing }
 
 -- | Constructs Workspace's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newWorkspace' :: ( { "WorkspaceId" :: NullOrUndefined (WorkspaceId) , "DirectoryId" :: NullOrUndefined (DirectoryId) , "UserName" :: NullOrUndefined (UserName) , "IpAddress" :: NullOrUndefined (IpAddress) , "State" :: NullOrUndefined (WorkspaceState) , "BundleId" :: NullOrUndefined (BundleId) , "SubnetId" :: NullOrUndefined (SubnetId) , "ErrorMessage" :: NullOrUndefined (Description) , "ErrorCode" :: NullOrUndefined (WorkspaceErrorCode) , "ComputerName" :: NullOrUndefined (ComputerName) , "VolumeEncryptionKey" :: NullOrUndefined (VolumeEncryptionKey) , "UserVolumeEncryptionEnabled" :: NullOrUndefined (BooleanObject) , "RootVolumeEncryptionEnabled" :: NullOrUndefined (BooleanObject) , "WorkspaceProperties" :: NullOrUndefined (WorkspaceProperties) , "ModificationStates" :: NullOrUndefined (ModificationStateList) } -> {"WorkspaceId" :: NullOrUndefined (WorkspaceId) , "DirectoryId" :: NullOrUndefined (DirectoryId) , "UserName" :: NullOrUndefined (UserName) , "IpAddress" :: NullOrUndefined (IpAddress) , "State" :: NullOrUndefined (WorkspaceState) , "BundleId" :: NullOrUndefined (BundleId) , "SubnetId" :: NullOrUndefined (SubnetId) , "ErrorMessage" :: NullOrUndefined (Description) , "ErrorCode" :: NullOrUndefined (WorkspaceErrorCode) , "ComputerName" :: NullOrUndefined (ComputerName) , "VolumeEncryptionKey" :: NullOrUndefined (VolumeEncryptionKey) , "UserVolumeEncryptionEnabled" :: NullOrUndefined (BooleanObject) , "RootVolumeEncryptionEnabled" :: NullOrUndefined (BooleanObject) , "WorkspaceProperties" :: NullOrUndefined (WorkspaceProperties) , "ModificationStates" :: NullOrUndefined (ModificationStateList) } ) -> Workspace
-newWorkspace'  customize = (Workspace <<< customize) { "BundleId": (NullOrUndefined Nothing), "ComputerName": (NullOrUndefined Nothing), "DirectoryId": (NullOrUndefined Nothing), "ErrorCode": (NullOrUndefined Nothing), "ErrorMessage": (NullOrUndefined Nothing), "IpAddress": (NullOrUndefined Nothing), "ModificationStates": (NullOrUndefined Nothing), "RootVolumeEncryptionEnabled": (NullOrUndefined Nothing), "State": (NullOrUndefined Nothing), "SubnetId": (NullOrUndefined Nothing), "UserName": (NullOrUndefined Nothing), "UserVolumeEncryptionEnabled": (NullOrUndefined Nothing), "VolumeEncryptionKey": (NullOrUndefined Nothing), "WorkspaceId": (NullOrUndefined Nothing), "WorkspaceProperties": (NullOrUndefined Nothing) }
+newWorkspace' :: ( { "WorkspaceId" :: Maybe (WorkspaceId) , "DirectoryId" :: Maybe (DirectoryId) , "UserName" :: Maybe (UserName) , "IpAddress" :: Maybe (IpAddress) , "State" :: Maybe (WorkspaceState) , "BundleId" :: Maybe (BundleId) , "SubnetId" :: Maybe (SubnetId) , "ErrorMessage" :: Maybe (Description) , "ErrorCode" :: Maybe (WorkspaceErrorCode) , "ComputerName" :: Maybe (ComputerName) , "VolumeEncryptionKey" :: Maybe (VolumeEncryptionKey) , "UserVolumeEncryptionEnabled" :: Maybe (BooleanObject) , "RootVolumeEncryptionEnabled" :: Maybe (BooleanObject) , "WorkspaceProperties" :: Maybe (WorkspaceProperties) , "ModificationStates" :: Maybe (ModificationStateList) } -> {"WorkspaceId" :: Maybe (WorkspaceId) , "DirectoryId" :: Maybe (DirectoryId) , "UserName" :: Maybe (UserName) , "IpAddress" :: Maybe (IpAddress) , "State" :: Maybe (WorkspaceState) , "BundleId" :: Maybe (BundleId) , "SubnetId" :: Maybe (SubnetId) , "ErrorMessage" :: Maybe (Description) , "ErrorCode" :: Maybe (WorkspaceErrorCode) , "ComputerName" :: Maybe (ComputerName) , "VolumeEncryptionKey" :: Maybe (VolumeEncryptionKey) , "UserVolumeEncryptionEnabled" :: Maybe (BooleanObject) , "RootVolumeEncryptionEnabled" :: Maybe (BooleanObject) , "WorkspaceProperties" :: Maybe (WorkspaceProperties) , "ModificationStates" :: Maybe (ModificationStateList) } ) -> Workspace
+newWorkspace'  customize = (Workspace <<< customize) { "BundleId": Nothing, "ComputerName": Nothing, "DirectoryId": Nothing, "ErrorCode": Nothing, "ErrorMessage": Nothing, "IpAddress": Nothing, "ModificationStates": Nothing, "RootVolumeEncryptionEnabled": Nothing, "State": Nothing, "SubnetId": Nothing, "UserName": Nothing, "UserVolumeEncryptionEnabled": Nothing, "VolumeEncryptionKey": Nothing, "WorkspaceId": Nothing, "WorkspaceProperties": Nothing }
 
 
 
 -- | <p>Information about a WorkSpace bundle.</p>
 newtype WorkspaceBundle = WorkspaceBundle 
-  { "BundleId" :: NullOrUndefined (BundleId)
-  , "Name" :: NullOrUndefined (NonEmptyString)
-  , "Owner" :: NullOrUndefined (BundleOwner)
-  , "Description" :: NullOrUndefined (Description)
-  , "RootStorage" :: NullOrUndefined (RootStorage)
-  , "UserStorage" :: NullOrUndefined (UserStorage)
-  , "ComputeType" :: NullOrUndefined (ComputeType)
+  { "BundleId" :: Maybe (BundleId)
+  , "Name" :: Maybe (NonEmptyString)
+  , "Owner" :: Maybe (BundleOwner)
+  , "Description" :: Maybe (Description)
+  , "RootStorage" :: Maybe (RootStorage)
+  , "UserStorage" :: Maybe (UserStorage)
+  , "ComputeType" :: Maybe (ComputeType)
   }
 derive instance newtypeWorkspaceBundle :: Newtype WorkspaceBundle _
 derive instance repGenericWorkspaceBundle :: Generic WorkspaceBundle _
@@ -1527,21 +1526,21 @@ instance encodeWorkspaceBundle :: Encode WorkspaceBundle where encode = genericE
 
 -- | Constructs WorkspaceBundle from required parameters
 newWorkspaceBundle :: WorkspaceBundle
-newWorkspaceBundle  = WorkspaceBundle { "BundleId": (NullOrUndefined Nothing), "ComputeType": (NullOrUndefined Nothing), "Description": (NullOrUndefined Nothing), "Name": (NullOrUndefined Nothing), "Owner": (NullOrUndefined Nothing), "RootStorage": (NullOrUndefined Nothing), "UserStorage": (NullOrUndefined Nothing) }
+newWorkspaceBundle  = WorkspaceBundle { "BundleId": Nothing, "ComputeType": Nothing, "Description": Nothing, "Name": Nothing, "Owner": Nothing, "RootStorage": Nothing, "UserStorage": Nothing }
 
 -- | Constructs WorkspaceBundle's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newWorkspaceBundle' :: ( { "BundleId" :: NullOrUndefined (BundleId) , "Name" :: NullOrUndefined (NonEmptyString) , "Owner" :: NullOrUndefined (BundleOwner) , "Description" :: NullOrUndefined (Description) , "RootStorage" :: NullOrUndefined (RootStorage) , "UserStorage" :: NullOrUndefined (UserStorage) , "ComputeType" :: NullOrUndefined (ComputeType) } -> {"BundleId" :: NullOrUndefined (BundleId) , "Name" :: NullOrUndefined (NonEmptyString) , "Owner" :: NullOrUndefined (BundleOwner) , "Description" :: NullOrUndefined (Description) , "RootStorage" :: NullOrUndefined (RootStorage) , "UserStorage" :: NullOrUndefined (UserStorage) , "ComputeType" :: NullOrUndefined (ComputeType) } ) -> WorkspaceBundle
-newWorkspaceBundle'  customize = (WorkspaceBundle <<< customize) { "BundleId": (NullOrUndefined Nothing), "ComputeType": (NullOrUndefined Nothing), "Description": (NullOrUndefined Nothing), "Name": (NullOrUndefined Nothing), "Owner": (NullOrUndefined Nothing), "RootStorage": (NullOrUndefined Nothing), "UserStorage": (NullOrUndefined Nothing) }
+newWorkspaceBundle' :: ( { "BundleId" :: Maybe (BundleId) , "Name" :: Maybe (NonEmptyString) , "Owner" :: Maybe (BundleOwner) , "Description" :: Maybe (Description) , "RootStorage" :: Maybe (RootStorage) , "UserStorage" :: Maybe (UserStorage) , "ComputeType" :: Maybe (ComputeType) } -> {"BundleId" :: Maybe (BundleId) , "Name" :: Maybe (NonEmptyString) , "Owner" :: Maybe (BundleOwner) , "Description" :: Maybe (Description) , "RootStorage" :: Maybe (RootStorage) , "UserStorage" :: Maybe (UserStorage) , "ComputeType" :: Maybe (ComputeType) } ) -> WorkspaceBundle
+newWorkspaceBundle'  customize = (WorkspaceBundle <<< customize) { "BundleId": Nothing, "ComputeType": Nothing, "Description": Nothing, "Name": Nothing, "Owner": Nothing, "RootStorage": Nothing, "UserStorage": Nothing }
 
 
 
 -- | <p>Describes the connection status of a WorkSpace.</p>
 newtype WorkspaceConnectionStatus = WorkspaceConnectionStatus 
-  { "WorkspaceId" :: NullOrUndefined (WorkspaceId)
-  , "ConnectionState" :: NullOrUndefined (ConnectionState)
-  , "ConnectionStateCheckTimestamp" :: NullOrUndefined (Types.Timestamp)
-  , "LastKnownUserConnectionTimestamp" :: NullOrUndefined (Types.Timestamp)
+  { "WorkspaceId" :: Maybe (WorkspaceId)
+  , "ConnectionState" :: Maybe (ConnectionState)
+  , "ConnectionStateCheckTimestamp" :: Maybe (Types.Timestamp)
+  , "LastKnownUserConnectionTimestamp" :: Maybe (Types.Timestamp)
   }
 derive instance newtypeWorkspaceConnectionStatus :: Newtype WorkspaceConnectionStatus _
 derive instance repGenericWorkspaceConnectionStatus :: Generic WorkspaceConnectionStatus _
@@ -1551,12 +1550,12 @@ instance encodeWorkspaceConnectionStatus :: Encode WorkspaceConnectionStatus whe
 
 -- | Constructs WorkspaceConnectionStatus from required parameters
 newWorkspaceConnectionStatus :: WorkspaceConnectionStatus
-newWorkspaceConnectionStatus  = WorkspaceConnectionStatus { "ConnectionState": (NullOrUndefined Nothing), "ConnectionStateCheckTimestamp": (NullOrUndefined Nothing), "LastKnownUserConnectionTimestamp": (NullOrUndefined Nothing), "WorkspaceId": (NullOrUndefined Nothing) }
+newWorkspaceConnectionStatus  = WorkspaceConnectionStatus { "ConnectionState": Nothing, "ConnectionStateCheckTimestamp": Nothing, "LastKnownUserConnectionTimestamp": Nothing, "WorkspaceId": Nothing }
 
 -- | Constructs WorkspaceConnectionStatus's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newWorkspaceConnectionStatus' :: ( { "WorkspaceId" :: NullOrUndefined (WorkspaceId) , "ConnectionState" :: NullOrUndefined (ConnectionState) , "ConnectionStateCheckTimestamp" :: NullOrUndefined (Types.Timestamp) , "LastKnownUserConnectionTimestamp" :: NullOrUndefined (Types.Timestamp) } -> {"WorkspaceId" :: NullOrUndefined (WorkspaceId) , "ConnectionState" :: NullOrUndefined (ConnectionState) , "ConnectionStateCheckTimestamp" :: NullOrUndefined (Types.Timestamp) , "LastKnownUserConnectionTimestamp" :: NullOrUndefined (Types.Timestamp) } ) -> WorkspaceConnectionStatus
-newWorkspaceConnectionStatus'  customize = (WorkspaceConnectionStatus <<< customize) { "ConnectionState": (NullOrUndefined Nothing), "ConnectionStateCheckTimestamp": (NullOrUndefined Nothing), "LastKnownUserConnectionTimestamp": (NullOrUndefined Nothing), "WorkspaceId": (NullOrUndefined Nothing) }
+newWorkspaceConnectionStatus' :: ( { "WorkspaceId" :: Maybe (WorkspaceId) , "ConnectionState" :: Maybe (ConnectionState) , "ConnectionStateCheckTimestamp" :: Maybe (Types.Timestamp) , "LastKnownUserConnectionTimestamp" :: Maybe (Types.Timestamp) } -> {"WorkspaceId" :: Maybe (WorkspaceId) , "ConnectionState" :: Maybe (ConnectionState) , "ConnectionStateCheckTimestamp" :: Maybe (Types.Timestamp) , "LastKnownUserConnectionTimestamp" :: Maybe (Types.Timestamp) } ) -> WorkspaceConnectionStatus
+newWorkspaceConnectionStatus'  customize = (WorkspaceConnectionStatus <<< customize) { "ConnectionState": Nothing, "ConnectionStateCheckTimestamp": Nothing, "LastKnownUserConnectionTimestamp": Nothing, "WorkspaceId": Nothing }
 
 
 
@@ -1571,18 +1570,18 @@ instance encodeWorkspaceConnectionStatusList :: Encode WorkspaceConnectionStatus
 
 -- | <p>Contains information about an AWS Directory Service directory for use with Amazon WorkSpaces.</p>
 newtype WorkspaceDirectory = WorkspaceDirectory 
-  { "DirectoryId" :: NullOrUndefined (DirectoryId)
-  , "Alias" :: NullOrUndefined (Alias)
-  , "DirectoryName" :: NullOrUndefined (DirectoryName)
-  , "RegistrationCode" :: NullOrUndefined (RegistrationCode)
-  , "SubnetIds" :: NullOrUndefined (SubnetIds)
-  , "DnsIpAddresses" :: NullOrUndefined (DnsIpAddresses)
-  , "CustomerUserName" :: NullOrUndefined (UserName)
-  , "IamRoleId" :: NullOrUndefined (ARN)
-  , "DirectoryType" :: NullOrUndefined (WorkspaceDirectoryType)
-  , "WorkspaceSecurityGroupId" :: NullOrUndefined (SecurityGroupId)
-  , "State" :: NullOrUndefined (WorkspaceDirectoryState)
-  , "WorkspaceCreationProperties" :: NullOrUndefined (DefaultWorkspaceCreationProperties)
+  { "DirectoryId" :: Maybe (DirectoryId)
+  , "Alias" :: Maybe (Alias)
+  , "DirectoryName" :: Maybe (DirectoryName)
+  , "RegistrationCode" :: Maybe (RegistrationCode)
+  , "SubnetIds" :: Maybe (SubnetIds)
+  , "DnsIpAddresses" :: Maybe (DnsIpAddresses)
+  , "CustomerUserName" :: Maybe (UserName)
+  , "IamRoleId" :: Maybe (ARN)
+  , "DirectoryType" :: Maybe (WorkspaceDirectoryType)
+  , "WorkspaceSecurityGroupId" :: Maybe (SecurityGroupId)
+  , "State" :: Maybe (WorkspaceDirectoryState)
+  , "WorkspaceCreationProperties" :: Maybe (DefaultWorkspaceCreationProperties)
   }
 derive instance newtypeWorkspaceDirectory :: Newtype WorkspaceDirectory _
 derive instance repGenericWorkspaceDirectory :: Generic WorkspaceDirectory _
@@ -1592,12 +1591,12 @@ instance encodeWorkspaceDirectory :: Encode WorkspaceDirectory where encode = ge
 
 -- | Constructs WorkspaceDirectory from required parameters
 newWorkspaceDirectory :: WorkspaceDirectory
-newWorkspaceDirectory  = WorkspaceDirectory { "Alias": (NullOrUndefined Nothing), "CustomerUserName": (NullOrUndefined Nothing), "DirectoryId": (NullOrUndefined Nothing), "DirectoryName": (NullOrUndefined Nothing), "DirectoryType": (NullOrUndefined Nothing), "DnsIpAddresses": (NullOrUndefined Nothing), "IamRoleId": (NullOrUndefined Nothing), "RegistrationCode": (NullOrUndefined Nothing), "State": (NullOrUndefined Nothing), "SubnetIds": (NullOrUndefined Nothing), "WorkspaceCreationProperties": (NullOrUndefined Nothing), "WorkspaceSecurityGroupId": (NullOrUndefined Nothing) }
+newWorkspaceDirectory  = WorkspaceDirectory { "Alias": Nothing, "CustomerUserName": Nothing, "DirectoryId": Nothing, "DirectoryName": Nothing, "DirectoryType": Nothing, "DnsIpAddresses": Nothing, "IamRoleId": Nothing, "RegistrationCode": Nothing, "State": Nothing, "SubnetIds": Nothing, "WorkspaceCreationProperties": Nothing, "WorkspaceSecurityGroupId": Nothing }
 
 -- | Constructs WorkspaceDirectory's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newWorkspaceDirectory' :: ( { "DirectoryId" :: NullOrUndefined (DirectoryId) , "Alias" :: NullOrUndefined (Alias) , "DirectoryName" :: NullOrUndefined (DirectoryName) , "RegistrationCode" :: NullOrUndefined (RegistrationCode) , "SubnetIds" :: NullOrUndefined (SubnetIds) , "DnsIpAddresses" :: NullOrUndefined (DnsIpAddresses) , "CustomerUserName" :: NullOrUndefined (UserName) , "IamRoleId" :: NullOrUndefined (ARN) , "DirectoryType" :: NullOrUndefined (WorkspaceDirectoryType) , "WorkspaceSecurityGroupId" :: NullOrUndefined (SecurityGroupId) , "State" :: NullOrUndefined (WorkspaceDirectoryState) , "WorkspaceCreationProperties" :: NullOrUndefined (DefaultWorkspaceCreationProperties) } -> {"DirectoryId" :: NullOrUndefined (DirectoryId) , "Alias" :: NullOrUndefined (Alias) , "DirectoryName" :: NullOrUndefined (DirectoryName) , "RegistrationCode" :: NullOrUndefined (RegistrationCode) , "SubnetIds" :: NullOrUndefined (SubnetIds) , "DnsIpAddresses" :: NullOrUndefined (DnsIpAddresses) , "CustomerUserName" :: NullOrUndefined (UserName) , "IamRoleId" :: NullOrUndefined (ARN) , "DirectoryType" :: NullOrUndefined (WorkspaceDirectoryType) , "WorkspaceSecurityGroupId" :: NullOrUndefined (SecurityGroupId) , "State" :: NullOrUndefined (WorkspaceDirectoryState) , "WorkspaceCreationProperties" :: NullOrUndefined (DefaultWorkspaceCreationProperties) } ) -> WorkspaceDirectory
-newWorkspaceDirectory'  customize = (WorkspaceDirectory <<< customize) { "Alias": (NullOrUndefined Nothing), "CustomerUserName": (NullOrUndefined Nothing), "DirectoryId": (NullOrUndefined Nothing), "DirectoryName": (NullOrUndefined Nothing), "DirectoryType": (NullOrUndefined Nothing), "DnsIpAddresses": (NullOrUndefined Nothing), "IamRoleId": (NullOrUndefined Nothing), "RegistrationCode": (NullOrUndefined Nothing), "State": (NullOrUndefined Nothing), "SubnetIds": (NullOrUndefined Nothing), "WorkspaceCreationProperties": (NullOrUndefined Nothing), "WorkspaceSecurityGroupId": (NullOrUndefined Nothing) }
+newWorkspaceDirectory' :: ( { "DirectoryId" :: Maybe (DirectoryId) , "Alias" :: Maybe (Alias) , "DirectoryName" :: Maybe (DirectoryName) , "RegistrationCode" :: Maybe (RegistrationCode) , "SubnetIds" :: Maybe (SubnetIds) , "DnsIpAddresses" :: Maybe (DnsIpAddresses) , "CustomerUserName" :: Maybe (UserName) , "IamRoleId" :: Maybe (ARN) , "DirectoryType" :: Maybe (WorkspaceDirectoryType) , "WorkspaceSecurityGroupId" :: Maybe (SecurityGroupId) , "State" :: Maybe (WorkspaceDirectoryState) , "WorkspaceCreationProperties" :: Maybe (DefaultWorkspaceCreationProperties) } -> {"DirectoryId" :: Maybe (DirectoryId) , "Alias" :: Maybe (Alias) , "DirectoryName" :: Maybe (DirectoryName) , "RegistrationCode" :: Maybe (RegistrationCode) , "SubnetIds" :: Maybe (SubnetIds) , "DnsIpAddresses" :: Maybe (DnsIpAddresses) , "CustomerUserName" :: Maybe (UserName) , "IamRoleId" :: Maybe (ARN) , "DirectoryType" :: Maybe (WorkspaceDirectoryType) , "WorkspaceSecurityGroupId" :: Maybe (SecurityGroupId) , "State" :: Maybe (WorkspaceDirectoryState) , "WorkspaceCreationProperties" :: Maybe (DefaultWorkspaceCreationProperties) } ) -> WorkspaceDirectory
+newWorkspaceDirectory'  customize = (WorkspaceDirectory <<< customize) { "Alias": Nothing, "CustomerUserName": Nothing, "DirectoryId": Nothing, "DirectoryName": Nothing, "DirectoryType": Nothing, "DnsIpAddresses": Nothing, "IamRoleId": Nothing, "RegistrationCode": Nothing, "State": Nothing, "SubnetIds": Nothing, "WorkspaceCreationProperties": Nothing, "WorkspaceSecurityGroupId": Nothing }
 
 
 
@@ -1657,11 +1656,11 @@ instance encodeWorkspaceList :: Encode WorkspaceList where encode = genericEncod
 
 -- | <p>Information about a WorkSpace.</p>
 newtype WorkspaceProperties = WorkspaceProperties 
-  { "RunningMode" :: NullOrUndefined (RunningMode)
-  , "RunningModeAutoStopTimeoutInMinutes" :: NullOrUndefined (RunningModeAutoStopTimeoutInMinutes)
-  , "RootVolumeSizeGib" :: NullOrUndefined (RootVolumeSizeGib)
-  , "UserVolumeSizeGib" :: NullOrUndefined (UserVolumeSizeGib)
-  , "ComputeTypeName" :: NullOrUndefined (Compute)
+  { "RunningMode" :: Maybe (RunningMode)
+  , "RunningModeAutoStopTimeoutInMinutes" :: Maybe (RunningModeAutoStopTimeoutInMinutes)
+  , "RootVolumeSizeGib" :: Maybe (RootVolumeSizeGib)
+  , "UserVolumeSizeGib" :: Maybe (UserVolumeSizeGib)
+  , "ComputeTypeName" :: Maybe (Compute)
   }
 derive instance newtypeWorkspaceProperties :: Newtype WorkspaceProperties _
 derive instance repGenericWorkspaceProperties :: Generic WorkspaceProperties _
@@ -1671,12 +1670,12 @@ instance encodeWorkspaceProperties :: Encode WorkspaceProperties where encode = 
 
 -- | Constructs WorkspaceProperties from required parameters
 newWorkspaceProperties :: WorkspaceProperties
-newWorkspaceProperties  = WorkspaceProperties { "ComputeTypeName": (NullOrUndefined Nothing), "RootVolumeSizeGib": (NullOrUndefined Nothing), "RunningMode": (NullOrUndefined Nothing), "RunningModeAutoStopTimeoutInMinutes": (NullOrUndefined Nothing), "UserVolumeSizeGib": (NullOrUndefined Nothing) }
+newWorkspaceProperties  = WorkspaceProperties { "ComputeTypeName": Nothing, "RootVolumeSizeGib": Nothing, "RunningMode": Nothing, "RunningModeAutoStopTimeoutInMinutes": Nothing, "UserVolumeSizeGib": Nothing }
 
 -- | Constructs WorkspaceProperties's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newWorkspaceProperties' :: ( { "RunningMode" :: NullOrUndefined (RunningMode) , "RunningModeAutoStopTimeoutInMinutes" :: NullOrUndefined (RunningModeAutoStopTimeoutInMinutes) , "RootVolumeSizeGib" :: NullOrUndefined (RootVolumeSizeGib) , "UserVolumeSizeGib" :: NullOrUndefined (UserVolumeSizeGib) , "ComputeTypeName" :: NullOrUndefined (Compute) } -> {"RunningMode" :: NullOrUndefined (RunningMode) , "RunningModeAutoStopTimeoutInMinutes" :: NullOrUndefined (RunningModeAutoStopTimeoutInMinutes) , "RootVolumeSizeGib" :: NullOrUndefined (RootVolumeSizeGib) , "UserVolumeSizeGib" :: NullOrUndefined (UserVolumeSizeGib) , "ComputeTypeName" :: NullOrUndefined (Compute) } ) -> WorkspaceProperties
-newWorkspaceProperties'  customize = (WorkspaceProperties <<< customize) { "ComputeTypeName": (NullOrUndefined Nothing), "RootVolumeSizeGib": (NullOrUndefined Nothing), "RunningMode": (NullOrUndefined Nothing), "RunningModeAutoStopTimeoutInMinutes": (NullOrUndefined Nothing), "UserVolumeSizeGib": (NullOrUndefined Nothing) }
+newWorkspaceProperties' :: ( { "RunningMode" :: Maybe (RunningMode) , "RunningModeAutoStopTimeoutInMinutes" :: Maybe (RunningModeAutoStopTimeoutInMinutes) , "RootVolumeSizeGib" :: Maybe (RootVolumeSizeGib) , "UserVolumeSizeGib" :: Maybe (UserVolumeSizeGib) , "ComputeTypeName" :: Maybe (Compute) } -> {"RunningMode" :: Maybe (RunningMode) , "RunningModeAutoStopTimeoutInMinutes" :: Maybe (RunningModeAutoStopTimeoutInMinutes) , "RootVolumeSizeGib" :: Maybe (RootVolumeSizeGib) , "UserVolumeSizeGib" :: Maybe (UserVolumeSizeGib) , "ComputeTypeName" :: Maybe (Compute) } ) -> WorkspaceProperties
+newWorkspaceProperties'  customize = (WorkspaceProperties <<< customize) { "ComputeTypeName": Nothing, "RootVolumeSizeGib": Nothing, "RunningMode": Nothing, "RunningModeAutoStopTimeoutInMinutes": Nothing, "UserVolumeSizeGib": Nothing }
 
 
 
@@ -1685,11 +1684,11 @@ newtype WorkspaceRequest = WorkspaceRequest
   { "DirectoryId" :: (DirectoryId)
   , "UserName" :: (UserName)
   , "BundleId" :: (BundleId)
-  , "VolumeEncryptionKey" :: NullOrUndefined (VolumeEncryptionKey)
-  , "UserVolumeEncryptionEnabled" :: NullOrUndefined (BooleanObject)
-  , "RootVolumeEncryptionEnabled" :: NullOrUndefined (BooleanObject)
-  , "WorkspaceProperties" :: NullOrUndefined (WorkspaceProperties)
-  , "Tags" :: NullOrUndefined (TagList)
+  , "VolumeEncryptionKey" :: Maybe (VolumeEncryptionKey)
+  , "UserVolumeEncryptionEnabled" :: Maybe (BooleanObject)
+  , "RootVolumeEncryptionEnabled" :: Maybe (BooleanObject)
+  , "WorkspaceProperties" :: Maybe (WorkspaceProperties)
+  , "Tags" :: Maybe (TagList)
   }
 derive instance newtypeWorkspaceRequest :: Newtype WorkspaceRequest _
 derive instance repGenericWorkspaceRequest :: Generic WorkspaceRequest _
@@ -1699,12 +1698,12 @@ instance encodeWorkspaceRequest :: Encode WorkspaceRequest where encode = generi
 
 -- | Constructs WorkspaceRequest from required parameters
 newWorkspaceRequest :: BundleId -> DirectoryId -> UserName -> WorkspaceRequest
-newWorkspaceRequest _BundleId _DirectoryId _UserName = WorkspaceRequest { "BundleId": _BundleId, "DirectoryId": _DirectoryId, "UserName": _UserName, "RootVolumeEncryptionEnabled": (NullOrUndefined Nothing), "Tags": (NullOrUndefined Nothing), "UserVolumeEncryptionEnabled": (NullOrUndefined Nothing), "VolumeEncryptionKey": (NullOrUndefined Nothing), "WorkspaceProperties": (NullOrUndefined Nothing) }
+newWorkspaceRequest _BundleId _DirectoryId _UserName = WorkspaceRequest { "BundleId": _BundleId, "DirectoryId": _DirectoryId, "UserName": _UserName, "RootVolumeEncryptionEnabled": Nothing, "Tags": Nothing, "UserVolumeEncryptionEnabled": Nothing, "VolumeEncryptionKey": Nothing, "WorkspaceProperties": Nothing }
 
 -- | Constructs WorkspaceRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newWorkspaceRequest' :: BundleId -> DirectoryId -> UserName -> ( { "DirectoryId" :: (DirectoryId) , "UserName" :: (UserName) , "BundleId" :: (BundleId) , "VolumeEncryptionKey" :: NullOrUndefined (VolumeEncryptionKey) , "UserVolumeEncryptionEnabled" :: NullOrUndefined (BooleanObject) , "RootVolumeEncryptionEnabled" :: NullOrUndefined (BooleanObject) , "WorkspaceProperties" :: NullOrUndefined (WorkspaceProperties) , "Tags" :: NullOrUndefined (TagList) } -> {"DirectoryId" :: (DirectoryId) , "UserName" :: (UserName) , "BundleId" :: (BundleId) , "VolumeEncryptionKey" :: NullOrUndefined (VolumeEncryptionKey) , "UserVolumeEncryptionEnabled" :: NullOrUndefined (BooleanObject) , "RootVolumeEncryptionEnabled" :: NullOrUndefined (BooleanObject) , "WorkspaceProperties" :: NullOrUndefined (WorkspaceProperties) , "Tags" :: NullOrUndefined (TagList) } ) -> WorkspaceRequest
-newWorkspaceRequest' _BundleId _DirectoryId _UserName customize = (WorkspaceRequest <<< customize) { "BundleId": _BundleId, "DirectoryId": _DirectoryId, "UserName": _UserName, "RootVolumeEncryptionEnabled": (NullOrUndefined Nothing), "Tags": (NullOrUndefined Nothing), "UserVolumeEncryptionEnabled": (NullOrUndefined Nothing), "VolumeEncryptionKey": (NullOrUndefined Nothing), "WorkspaceProperties": (NullOrUndefined Nothing) }
+newWorkspaceRequest' :: BundleId -> DirectoryId -> UserName -> ( { "DirectoryId" :: (DirectoryId) , "UserName" :: (UserName) , "BundleId" :: (BundleId) , "VolumeEncryptionKey" :: Maybe (VolumeEncryptionKey) , "UserVolumeEncryptionEnabled" :: Maybe (BooleanObject) , "RootVolumeEncryptionEnabled" :: Maybe (BooleanObject) , "WorkspaceProperties" :: Maybe (WorkspaceProperties) , "Tags" :: Maybe (TagList) } -> {"DirectoryId" :: (DirectoryId) , "UserName" :: (UserName) , "BundleId" :: (BundleId) , "VolumeEncryptionKey" :: Maybe (VolumeEncryptionKey) , "UserVolumeEncryptionEnabled" :: Maybe (BooleanObject) , "RootVolumeEncryptionEnabled" :: Maybe (BooleanObject) , "WorkspaceProperties" :: Maybe (WorkspaceProperties) , "Tags" :: Maybe (TagList) } ) -> WorkspaceRequest
+newWorkspaceRequest' _BundleId _DirectoryId _UserName customize = (WorkspaceRequest <<< customize) { "BundleId": _BundleId, "DirectoryId": _DirectoryId, "UserName": _UserName, "RootVolumeEncryptionEnabled": Nothing, "Tags": Nothing, "UserVolumeEncryptionEnabled": Nothing, "VolumeEncryptionKey": Nothing, "WorkspaceProperties": Nothing }
 
 
 
